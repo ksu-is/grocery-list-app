@@ -14,5 +14,7 @@
     favorite:  Boolean,
     completed: Boolean
   }
-  
+
 ```
+### Wireframe
+[Wireframe File](https://drive.google.com/file/d/0B9p6hJKmZMZELUhQRzl4WXNZT1E/view?usp=sharing)
