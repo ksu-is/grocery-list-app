@@ -10,7 +10,7 @@ var User = require('../models/user');
 
 
 router.get('/:user', function(req, res){
-  res.send(req.params.user);
+  res.redirect('/user');
 })
 
 
