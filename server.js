@@ -9,7 +9,7 @@ var passport = require('passport');
 var methodOveride = require('method-override');
 var LocalStrategy = require('passport-local').Strategy;
 mongoose.Promise = global.Promise;
-var port  = 3000 || process.env.PORT
+var port  = 3000 || process.env.PORT;
 var app = express();
 var path    = require('path');
 
@@ -21,7 +21,7 @@ mongoose.connect('mongodb://localhost/grocery-list' || process.env.MONGODB_URI);
 // MIDDLEWARE / CONFIGURATION
 // ==================================
 app.use(express.static(path.join(__dirname,'public')));
-app.use(express.static('public')); //Not sure if we should keep this one or the one above
+
 
 mongoose.Promise = global.Promise;
 
