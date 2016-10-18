@@ -1,0 +1,22 @@
+header{
+  background-color: #222;
+  color: white;
+  padding: 1em;
+}
+nav{
+  background-color: #222;
+  font-size: 24px;
+}
+.home{
+  text-align: center;
+}
+@viewport{
+  zoom: 1.0;
+  width: device-width;
+}
+.user{
+  padding: 1rem;
+}
+h2{
+  text-align-last: center;
+}
