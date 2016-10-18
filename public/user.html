@@ -2,7 +2,7 @@
   <h2>Hello User</h2>
   <h3>My list</h3>
   <div class="items-board" ng-repeat="item in main.user.groceryList">
-    <a href="/show">
+    <a ui-sref="show({item: item})">
       <li>{{item.name}}</li>
     </a>
   </div>

@@ -29,6 +29,9 @@
   })
   .state('show', {
     url: '/show',
+    params: {
+      item: null
+    },
     templateUrl: "show.html",
     controller: 'MainCtrl',
     controllerAs: 'main'

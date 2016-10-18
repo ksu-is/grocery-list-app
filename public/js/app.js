@@ -26,6 +26,7 @@
         this.editedItem = item;
     };
 
+
     function addItem(newItem){
       $http.post('/' + self.user.username + '/add-item', newItem)
         .then(function(response){
@@ -58,7 +59,7 @@
           console.log(err);
         });
     };
-
+    this.setCurrentItem = setCurrentItem;
     this.addItem = addItem;
     this.deleteItem = deleteItem;
     this.editItem = editItem;
