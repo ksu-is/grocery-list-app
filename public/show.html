@@ -5,3 +5,6 @@
 <label>Description:{{$state.params.item.description}}</label>
 <label>Favorite:{{$state.params.item.favorite}}</label>
 </div>
+
+<a ui-sref="edit"><button type="button" name="Edit">EDIT</button></a>
+<button ng-click="main.deleteItem($state.params.item)" type="button" name="Delete">DELETE</button>
