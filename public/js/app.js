@@ -89,7 +89,7 @@
         });
     };
 
-    function signup(userPass){
+    function register(userPass){
       $http.post('/register', {username: userPass.username, password: userPass.password})
         .then(function(response) {
           console.log(response);
@@ -111,7 +111,7 @@
     };
 
     this.login = login;
-    this.signup = signup;
+    this.register = register;
     this.logout = logout;
   });
 
