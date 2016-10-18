@@ -38,8 +38,8 @@
         });
     };
 
-    function deleteItem(itemName){
-      $http.delete('/' + self.user.username + '/delete', itemName)
+    function deleteItem(item){
+      $http.delete('/' + self.user.username + '/delete', item)
         .then(function(resopnse){
           console.log(response);
           self.items = response.data.groceryList;
