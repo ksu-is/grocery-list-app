@@ -25,6 +25,10 @@
   .state('edit', {
     url: '/edit',
     templateUrl: "edit.html"
+  })
+  .state('register', {
+    url: '/edit',
+    templateUrl: "edit.html"
   });
 
   $urlRouterProvider.otherwise('/')
