@@ -18,10 +18,14 @@
     url: '/favorites',
     templateUrl: "favorites.html"
   })
-  .state('frequently', {
-    url: '/frequently',
-    templateUrl: "frequently.html"
+  .state('show', {
+    url: '/show',
+    templateUrl: "show.html"
   })
+  .state('edit', {
+    url: '/edit',
+    templateUrl: "edit.html"
+  });
 
   $urlRouterProvider.otherwise('/')
   $locationProvider.html5Mode({
