@@ -6,6 +6,14 @@
 
     this.editedItem = null;
 
+    $http.get('/helper/get-user')
+      .then(function(response){
+        self.user = response.user;
+      })
+      .catch(function(err){
+        console.log(err);
+      });
+
     $http.get('/:user/home')
       .then(function(response){
         self.items = response.data.groceryList;
@@ -14,7 +22,7 @@
         console.log(err);
       });
 
-    function setItemtoEditedItem(iten){
+    function setItemtoEditedItem(item){
         this.editedItem = item;
     };
 
@@ -60,6 +68,14 @@
 
   app.controller('AuthCtrl', function($http, $state, $stateParams){
     var self = this;
+
+    $http.get('/helper/get-user')
+      .then(function(response){
+        self.user = response.user;
+      })
+      .catch(function(err){
+        console.log(err);
+      });
 
     function login(userPass){
       $http.post('/login', {username: userPass.username, password: userPass.password})
