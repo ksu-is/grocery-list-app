@@ -15,6 +15,10 @@ var path    = require('path');
 
 //DATABASE CONNECTION
 //=================================
+var User = require('./models/user.js');
+
+//DATABASE CONNECTION
+//=================================
 var db = mongoose.connection;
 mongoose.connect('mongodb://localhost/grocery-list' || process.env.MONGODB_URI);
 
@@ -29,10 +33,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(logger('dev'));
 
-app.get('/', function(req, res){
-    res.render('index');
-});
-
 //PASSPORT
 //=================================
 app.use(require('express-session')({
@@ -44,9 +44,45 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //To be used when user is created ********
-// passport.use(User.createStrategy());
-// passport.serializeUser(User.serializeUser());
-// passport.deserializeUser(User.deserializeUser());
+passport.use(User.createStrategy());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+
+//USER HOME REGISTER
+//=================================
+app.get('/', function(req, res){
+    res.render('index');
+});
+
+//USER HOME REGISTER
+//=================================
+app.post('/register',  function(req, res){
+  User.register(newUser({
+    username: req.body.username
+  }),
+  req.body.password,
+  function(err, user){
+    req.login(user, function(err){
+      if(err) console.log(err);
+      return res.redirect('/' + req.user.username);
+    });
+  });
+});
+
+//USER HOME LOGIN
+//=================================
+app.post('/login', passport.authenticate('local'), function(req, res){
+  res.redirect('/', req.user.username);
+});
+
+
+//USER HOME LOGOUT
+//=================================
+app.delete('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
+});
 
 
 //PORT LISTENER
