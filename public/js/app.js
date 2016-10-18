@@ -27,8 +27,8 @@
     templateUrl: "edit.html"
   })
   .state('register', {
-    url: '/edit',
-    templateUrl: "edit.html"
+    url: '/register',
+    templateUrl: "register.html"
   });
 
   $urlRouterProvider.otherwise('/')
