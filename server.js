@@ -13,7 +13,7 @@ var port  = 3000 || process.env.PORT;
 var app = express();
 var path    = require('path');
 
-//DATABASE CONNECTION
+//EXTERNAL FILES
 //=================================
 var User = require('./models/user.js');
 
