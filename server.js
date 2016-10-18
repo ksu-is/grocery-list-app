@@ -17,6 +17,7 @@ var path    = require('path');
 //=================================
 var User = require('./models/user.js');
 var UsersController = require('./controllers/users.js');
+var HelperController = require('./controllers/helper.js');
 
 //DATABASE CONNECTION
 //=================================
@@ -27,6 +28,8 @@ mongoose.connect('mongodb://localhost/grocery-list' || process.env.MONGODB_URI);
 // ==================================
 app.use(express.static(path.join(__dirname,'public')));
 app.use("/:user", UsersController);
+app.use("/helper", HelperController);
+
 
 mongoose.Promise = global.Promise;
 
