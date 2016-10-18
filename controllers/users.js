@@ -13,6 +13,7 @@ router.get('/', function(req, res){
   res.redirect('/user');
 })
 
+
 //Creating a new item
 router.post('/items', function(req, res){
   User.findById(req.params.id, function(err, user){
