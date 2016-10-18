@@ -8,32 +8,32 @@
   $stateProvider
   .state('home', {
     url: '/',
-    templateUrl: "home.html"
+    templateUrl: "home.html",
     controller: 'MainCtrl'
   })
   .state('user', {
     url:'/user',
-    templateUrl: "user.html"
+    templateUrl: "user.html",
     controller: 'MainCtrl'
   })
   .state('favorites', {
     url: '/favorites',
-    templateUrl: "favorites.html"
+    templateUrl: "favorites.html",
     controller: 'MainCtrl'
   })
   .state('show', {
     url: '/show',
-    templateUrl: "show.html"
+    templateUrl: "show.html",
     controller: 'MainCtrl'
   })
   .state('edit', {
     url: '/edit',
-    templateUrl: "edit.html"
+    templateUrl: "edit.html",
     controller: 'MainCtrl'
   })
   .state('register', {
     url: '/register',
-    templateUrl: "register.html"
+    templateUrl: "register.html",
     controller: 'MainCtrl'
   });
 
