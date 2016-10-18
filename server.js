@@ -65,6 +65,7 @@ app.post('/register',  function(req, res){
   function(err, user){
     req.login(user, function(err){
       if(err) console.log(err);
+      console.log(user);
       return res.redirect('/' + req.user.username);
     });
   });
