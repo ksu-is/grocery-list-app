@@ -16,6 +16,7 @@ var path    = require('path');
 //EXTERNAL FILES
 //=================================
 var User = require('./models/user.js');
+var UsersController = require('./controllers/users.js');
 
 //DATABASE CONNECTION
 //=================================
@@ -25,7 +26,7 @@ mongoose.connect('mongodb://localhost/grocery-list' || process.env.MONGODB_URI);
 // MIDDLEWARE / CONFIGURATION
 // ==================================
 app.use(express.static(path.join(__dirname,'public')));
-
+app.use("/users", UsersController);
 
 mongoose.Promise = global.Promise;
 
@@ -66,7 +67,7 @@ app.post('/register',  function(req, res){
     req.login(user, function(err){
       if(err) console.log(err);
       console.log(user);
-      return res.redirect('/' + req.user.username);
+      return res.redirect('/users/' + req.user.username);
     });
   });
 });
@@ -74,7 +75,7 @@ app.post('/register',  function(req, res){
 //USER HOME LOGIN
 //=================================
 app.post('/login', passport.authenticate('local'), function(req, res){
-  res.redirect('/', req.user.username);
+  res.redirect('/users/', req.user.username);
 });
 
 
