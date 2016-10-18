@@ -14,7 +14,7 @@
         console.log(err);
       });
 
-    $http.get('/:user/home')
+    $http.get('/' + self.user.username + '/home')
       .then(function(response){
         self.items = response.data.groceryList;
       })
@@ -27,10 +27,10 @@
     };
 
     function addItem(newItem){
-      $http.post('/:user/add-item', newItem)
+      $http.post('/' + self.user.username + '/add-item', newItem)
         .then(function(response){
           //newItem form needs to be cleared out here
-          $state.go('home', {url: '/:user/home'});
+          $state.go('home', {url: '/' + self.user.username + '/home'});
         })
         .catch(function(err){
           console.log(err);

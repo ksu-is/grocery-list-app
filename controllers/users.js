@@ -6,25 +6,32 @@ var router = express.Router();
 //EXTERNAL FILES
 //======================================
 var User = require('../models/user');
-var User = require('../models/item');
+var Item = require('../models/item').model;
 
 
-router.get('/', function(req, res){
-  res.redirect('/user');
-})
+router.get('/home', function(req, res){
+  User.findOne({
+    username: req.params.user
+  }, function(err, user){
+    res.json({groceryList: user.groceryList});
+  });
+});
 
 
-//Creating a new item
-router.post('/items', function(req, res){
-  User.findById(req.params.id, function(err, user){
-    user.items.push(new Item(
-       {name: req.body.name,
-        description: req.body.description,
-        favorite: req.body.favorite
+//Adding a new item
+router.post('/add-item', function(req, res){
+  User.findOne({
+    username: req.params.user
+  }, function(err, user){
+    user.groceryList.push(new Item({
+         name: req.body.name,
+         description: req.body.description,
+         favorite: req.body.favorite
       }))
-      user.save(function(err){
-        res.redirect(`/${user.id}`); //Check in this route
-      });
+    user.save(function(err){
+      if(err) console.log(err);
+      console.log("Item Saved to User!!!");
+    });
   });
 });
 
