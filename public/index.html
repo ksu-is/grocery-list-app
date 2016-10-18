@@ -12,16 +12,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   </head>
   <body>
-    <div class="conatiner">
+    <div class="container" ng-controller="MainCtrl as main">
       <header>
         <h1>Shopping List App</h1>
         <nav class="nav nav-pills">
           <a ui-sref-active="active" ui-sref="home">Home |</a>
           <a ui-sref-active="active" ui-sref="user">My Page |</a>
           <a ui-sref-active="active" ui-sref="favorites">Favorites |</a>
-          <form action="/logout?_method" method="post">
-
-          </form>
         </nav>
       </header>
       <main ui-view></main>
