@@ -35,14 +35,19 @@ router.post('/add-item', function(req, res){
   });
 });
 
+//Edit an existing item
+
+
 //Deleting an item id=item id
-router.delete('/:userId/show/:id', function(req, res){
-  User.findByIdAndUpdate(req.params.userId, {
-    $pull: {
-      items: {_id: req.params.id}
-    }
-  },function(err){
-    res.redirect(`/${req.params.userId}`);
+router.delete('/delete', function(req, res){
+  User.findOne({username: req.params.username}, function(err, user){
+    var itemIndex = user.groceryList.indexOf({name: req.body.itemName});
+    user.groceryList.splice(itemIndex, 1);
+
+    user.save(function(err){
+      if(err) console.log(err);
+      console.log("Item deleted from User");
+    });
   });
 });
 

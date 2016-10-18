@@ -38,7 +38,7 @@
     };
 
     function deleteItem(itemName){
-      $http.delete('/:user/delete', itemName)
+      $http.delete('/' + self.user.username + '/delete', itemName)
         .then(function(resopnse){
           console.log(response);
           self.items = response.data.groceryList;
