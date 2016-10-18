@@ -26,7 +26,7 @@ mongoose.connect('mongodb://localhost/grocery-list' || process.env.MONGODB_URI);
 // MIDDLEWARE / CONFIGURATION
 // ==================================
 app.use(express.static(path.join(__dirname,'public')));
-app.use("/users", UsersController);
+app.use("/:user", UsersController);
 
 mongoose.Promise = global.Promise;
 
