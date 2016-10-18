@@ -12,8 +12,8 @@
   .state('home', {
     url: '/',
     templateUrl: "home.html",
-    controller: 'MainCtrl',
-    controllerAs: 'main'
+    controller: 'AuthCtrl',
+    controllerAs: 'auth'
   })
   .state('user', {
     url:'/user',
@@ -42,8 +42,8 @@
   .state('register', {
     url: '/register',
     templateUrl: "register.html",
-    controller: 'MainCtrl',
-    controllerAs: 'main'
+    controller: 'AuthCtrl',
+    controllerAs: 'auth'
   });
 
   $urlRouterProvider.otherwise('/')
