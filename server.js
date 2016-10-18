@@ -58,7 +58,7 @@ app.get('/', function(req, res){
 //USER HOME REGISTER
 //=================================
 app.post('/register',  function(req, res){
-  User.register(newUser({
+  User.register(new User({
     username: req.body.username
   }),
   req.body.password,
