@@ -36,7 +36,21 @@ router.post('/add-item', function(req, res){
 });
 
 //Edit an existing item
-
+router.post('/edit-item', function(req, res){
+  User.findOne({
+    username: req.params.user
+  }, function(err, user){
+    user.groceryList.push(new Item({
+         name: req.body.name,
+         description: req.body.description,
+         favorite: req.body.favorite
+      }))
+    user.save(function(err){
+      if(err) console.log(err);
+      console.log("Item Saved to User!!!");
+    });
+  });
+});
 
 //Deleting an item id=item id
 router.delete('/delete', function(req, res){
