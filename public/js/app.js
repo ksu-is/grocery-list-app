@@ -91,7 +91,7 @@
       console.log("LOGOUT CLICKED!!!!");
       $http.delete('/logout')
         .then(function(response){
-          console.log("USER IS LOGGED OUT >>>>>>>", response);
+          console.log(response);
           $state.go('home', {url: '/'})
         })
         .catch(function(err){

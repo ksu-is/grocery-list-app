@@ -92,7 +92,9 @@ app.post('/login', passport.authenticate('local'), function(req, res){
 //USER HOME LOGOUT
 //=================================
 app.delete('/logout', function(req, res){
+  console.log("USER IS LOGGING OUT!!!!!!!");
   req.logout();
+  res.send("USER IS LOGGED OUT")
 });
 
 
