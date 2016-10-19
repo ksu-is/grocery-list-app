@@ -35,8 +35,8 @@ app.use("/helper", HelperController);
 
 mongoose.Promise = global.Promise;
 
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(logger('dev'));
 
 //PASSPORT
@@ -76,7 +76,7 @@ app.post('/register',  function(req, res){
       return res.json(user);
     });
   });
-});                              
+});
 
 //USER HOME LOGIN
 //=================================
