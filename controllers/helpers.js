@@ -5,6 +5,7 @@ var router = express.Router();
 
 router.get('/get-user', function(req, res){
   var user = req.user;
+  console.log(user);
   res.json({user: user});
 });
 
