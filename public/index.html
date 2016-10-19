@@ -13,13 +13,13 @@
   </head>
   <body>
     <div>
-      <header><!--ng-controller="AuthCtrl as auth"-->
+      <header ng-controller="AuthCtrl as auth">
         <h1>Shopping List App</h1>
         <nav class="nav nav-pills">
           <button ui-sref-active="active" ui-sref="home">Home</button>
           <button ui-sref-active="active" ui-sref="user">My Page</button>
           <button ui-sref-active="active" ui-sref="favorites">Favorites</button>
-          <!-- <button ng-click="auth.logout()">Logout</button> -->
+          <button ng-click="auth.logout()">Logout</button>
         </nav>
       </header>
       <main ui-view></main>
