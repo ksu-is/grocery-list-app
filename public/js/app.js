@@ -8,8 +8,8 @@
 
     $http.get('/helper/get-user')
       .then(function(response){
-        console.log("HELPER RESPONSE >>>>", response);
-        self.user = response.user;
+        console.log("HELPER RESPONSE >>>>", response.data.user);
+        self.user = response.data.user;
         console.log("current user status", self.user);
       })
       .catch(function(err){
