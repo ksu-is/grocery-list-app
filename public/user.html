@@ -1,17 +1,20 @@
+<h2>Hello User</h2>
 <div class="user">
-  <h2>Hello User</h2>
   <h3>My list</h3>
   <div class="items-board" ng-repeat="item in main.user.groceryList">
     <a ui-sref="show({item: item})">
       <li>{{item.name}}</li>
+      <li>Item</li>
     </a>
   </div>
   <br>
   <form class="add-item" ng-submit="main.addItem(newItem)" method="post">
     <input ng-model="newItem.name" type="text" name="name" value="item">
     <input ng-model="newItem.description" type="text" name="description" value="description"><br><br>
-    <input ng-model="newItem.favorite" type="radio" name="favorite" value="true">Yes
-    <input ng-model="newItem.favorite" type="radio" name="favorite" value="false">No
-    <input type="submit" name="name" value="ADD NEW">
+    <label for="favorite">Favorite? </label>
+    <input ng-model="newItem.favorite" type="radio" name="favorite" value="true"> Yes
+    <input ng-model="newItem.favorite" type="radio" name="favorite" value="false"> No
+    <br><br>
+    <input class="submit-button" type="submit" name="name" value="Add New">
   </form>
 </div>

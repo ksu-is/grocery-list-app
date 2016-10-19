@@ -76,7 +76,7 @@ app.post('/register',  function(req, res){
       return res.json(user);
     });
   });
-});
+});                              
 
 //USER HOME LOGIN
 //=================================
