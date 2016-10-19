@@ -20,18 +20,18 @@ router.get('/', function(req, res){
 
 //Adding a new item
 router.post('/add-item', function(req, res){
+  console.log("new item", req.body);
   User.findOne({
-    username: req.params.user
-  }, function(err, user){
-    user.groceryList.push(new Item({
-         name: req.body.name,
-         description: req.body.description,
-         favorite: req.body.favorite
-      }))
-    user.save(function(err){
-      if(err) console.log(err);
-      console.log("Item Saved to User!!!");
-    });
+    username: req.user.username
+  })
+  .then(function(user){
+    user.groceryList.push(req.body);
+    user.save();
+    res.status("item added to list").send(user);
+    console.log(user);
+  })
+  .catch(function(err){
+    console.log(err);
   });
 });
 
