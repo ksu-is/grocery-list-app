@@ -32,6 +32,9 @@
   })
   .state('edit', {
     url: '/edit',
+    params: {
+      item: null
+    },
     templateUrl: "/partials/edit.html",
     controller: 'MainCtrl',
     controllerAs: 'main'

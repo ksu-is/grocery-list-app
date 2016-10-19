@@ -1,10 +1,10 @@
 <h1>Show</h1>
 
 <div>
-<label>Item:{{$state.params.item.name}}</label>
-<label>Description:{{$state.params.item.description}}</label>
-<label>Favorite:{{$state.params.item.favorite}}</label>
+<label>Item:{{main.currentItem.name}}</label>
+<label>Description:{{main.currentItem.description}}</label>
+<label>Favorite:{{main.currentItem.favorite}}</label>
 </div>
 
-<a ui-sref="edit"><button type="button" name="Edit">EDIT</button></a>
-<button ng-click="main.deleteItem($state.params.item)" type="button" name="Delete">DELETE</button>
+<button ui-sref="edit({item: item})" ng-click="main.setItemToEdit(main.currentItem)" name="Edit">EDIT</button>
+<button ng-click="main.deleteItem(main.currentItem)" type="button" name="Delete">DELETE</button>
