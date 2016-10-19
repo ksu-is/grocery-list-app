@@ -10,6 +10,7 @@
       .then(function(response){
         console.log("HELPER RESPONSE >>>>", response);
         self.user = response.user;
+        console.log("current user status", self.user);
       })
       .catch(function(err){
         console.log(err);
@@ -21,8 +22,10 @@
 
 
     function addItem(newItem){
+      console.log("new item", newItem);
       $http.post('/user/add-item', newItem)
         .then(function(response){
+          console.log("item added to user", response.data.groceryList);
           //newItem form needs to be cleared out here
           $state.go('user', {url: '/user'});
         })
