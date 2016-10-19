@@ -28,7 +28,7 @@ router.post('/add-item', function(req, res){
 });
 
 //Edit an existing item
-router.put('/edit-item', function(req, res){
+router.post('/edit-item', function(req, res){
   User.findOne({
     username:  req.user.username
   }, function(err, user){
@@ -41,7 +41,6 @@ router.put('/edit-item', function(req, res){
       if(err) console.log(err);
       console.log("Edited Item Saved to User!!!");
     });
-    res.send("ITEM HAS BEEN EDITED!!!")
   });
 });
 
