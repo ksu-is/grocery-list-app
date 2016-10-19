@@ -7,6 +7,7 @@ var router = express.Router();
 //======================================
 var User = require('../models/user');
 var Item = require('../models/item').model;
+var findItemIndex = require('../public/js/logic.js');
 
 
 router.get('/', function(req, res){
@@ -20,34 +21,34 @@ router.get('/', function(req, res){
 
 //Adding a new item
 router.post('/add-item', function(req, res){
+  console.log("new item", req.body);
   User.findOne({
-    username: req.params.user
-  }, function(err, user){
-    user.groceryList.push(new Item({
-         name: req.body.name,
-         description: req.body.description,
-         favorite: req.body.favorite
-      }))
-    user.save(function(err){
-      if(err) console.log(err);
-      console.log("Item Saved to User!!!");
-    });
+    username: req.user.username
+  })
+  .then(function(user){
+    user.groceryList.push(req.body);
+    user.save();
+    res.status("item added to list").send(user);
+    console.log(user);
+  })
+  .catch(function(err){
+    console.log(err);
   });
 });
 
 //Edit an existing item
 router.post('/edit-item', function(req, res){
   User.findOne({
-    username: req.params.user
+    username:  req.user.username
   }, function(err, user){
-    user.groceryList.push(new Item({
-         name: req.body.name,
-         description: req.body.description,
-         favorite: req.body.favorite
-      }))
+    //function to find Item in groceryList
+    var itemIndex = findItemIndex(req.body.currentItemId, user.groceryList);
+
+    user.groceryList[itemIndex] = req.body.editedItem;
+
     user.save(function(err){
       if(err) console.log(err);
-      console.log("Item Saved to User!!!");
+      console.log("Edited Item Saved to User!!!");
     });
   });
 });

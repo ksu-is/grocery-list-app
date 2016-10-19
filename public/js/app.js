@@ -1,28 +1,31 @@
 (function(){
   var app = angular.module('shopping-list', ['ui.router']);
 
-  app.controller('MainCtrl', function($http, $state){
+  app.controller('MainCtrl', function($http, $state, $stateParams){
     var self = this;
 
-    this.editedItem = null;
+    self.currentItem = $stateParams.item;
 
     $http.get('/helper/get-user')
       .then(function(response){
-        console.log("HELPER RESPONSE >>>>", response);
-        self.user = response.user;
+        console.log("HELPER RESPONSE >>>>", response.data.user);
+        self.user = response.data.user;
+        console.log("current user status", self.user);
       })
       .catch(function(err){
         console.log(err);
       });
 
-    function setItemtoEditedItem(item){
-        this.editedItem = item;
-    };
+    // function setItemToEdit(item){
+    //     self.itemToEdit = item;
+    // };
 
 
     function addItem(newItem){
+      console.log("new item", newItem);
       $http.post('/user/add-item', newItem)
         .then(function(response){
+          console.log("item added to user", response.data.groceryList);
           //newItem form needs to be cleared out here
           $state.go('user', {url: '/user'});
         })
@@ -43,7 +46,12 @@
     };
 
     function editItem(item){
-      $http.put('/user/edit-item', item)
+      console.log("CURRENT ITEM TO EDIT >>>>>>>", self.itemToEdit);
+      console.log("_id's type: ", typeof self.itemToEdit._id);
+      $http.put('/user/edit-item', {
+          currentItemId: self.itemToEdit._id,
+          editedItem: item
+        })
         .then(function(response){
           console.log(response);
           $state.go('user', {url: '/user'});
@@ -56,7 +64,7 @@
     this.addItem = addItem;
     this.deleteItem = deleteItem;
     this.editItem = editItem;
-    this.setItemtoEditedItem = setItemtoEditedItem;
+    this.setItemToEdit = setItemToEdit;
 
   });
 
@@ -91,7 +99,7 @@
       console.log("LOGOUT CLICKED!!!!");
       $http.delete('/logout')
         .then(function(response){
-          console.log("USER IS LOGGED OUT >>>>>>>", response);
+          console.log(response);
           $state.go('home', {url: '/'})
         })
         .catch(function(err){
