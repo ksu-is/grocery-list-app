@@ -18,7 +18,7 @@
       .then(function(response){
         self.items = response.data.groceryList;
       })
-      .thcatch(function(err){
+      .catch(function(err){
         console.log(err);
       });
 
