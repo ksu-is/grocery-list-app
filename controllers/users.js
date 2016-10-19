@@ -10,15 +10,6 @@ var Item = require('../models/item').model;
 var findItemIndex = require('../public/js/logic.js');
 
 
-router.get('/', function(req, res){
-  User.findOne({
-    username: req.user.username
-  }, function(err, user){
-    res.json({groceryList: user.groceryList});
-  });
-});
-
-
 //Adding a new item
 router.post('/add-item', function(req, res){
   console.log("new item", req.body);
@@ -50,6 +41,7 @@ router.put('/edit-item', function(req, res){
       if(err) console.log(err);
       console.log("Edited Item Saved to User!!!");
     });
+    res.send("ITEM HAS BEEN EDITED!!!")
   });
 });
 
