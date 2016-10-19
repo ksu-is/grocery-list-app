@@ -11,7 +11,7 @@ var Item = require('../models/item').model;
 
 router.get('/', function(req, res){
   User.findOne({
-    username: req.params.user
+    username: "a"
   }, function(err, user){
     res.json({groceryList: user.groceryList});
   });
@@ -21,7 +21,7 @@ router.get('/', function(req, res){
 //Adding a new item
 router.post('/add-item', function(req, res){
   User.findOne({
-    username: req.params.user
+    username: "a"
   }, function(err, user){
     user.groceryList.push(new Item({
          name: req.body.name,
@@ -38,7 +38,7 @@ router.post('/add-item', function(req, res){
 //Edit an existing item
 router.post('/edit-item', function(req, res){
   User.findOne({
-    username: req.params.user
+    username: "a"
   }, function(err, user){
     user.groceryList.push(new Item({
          name: req.body.name,
@@ -54,7 +54,7 @@ router.post('/edit-item', function(req, res){
 
 //Deleting an item id=item id
 router.delete('/delete', function(req, res){
-  User.findOne({username: req.params.username}, function(err, user){
+  User.findOne({username: "a"}, function(err, user){
     var itemIndex = user.groceryList.indexOf({name: req.body.item.name});
     user.groceryList.splice(itemIndex, 1);
 

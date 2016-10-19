@@ -33,7 +33,7 @@
       $http.post('/a/add-item', newItem)
         .then(function(response){
           //newItem form needs to be cleared out here
-          $state.go('home', {url: '/a');
+          $state.go('home', {url: '/a'});
         })
         .catch(function(err){
           console.log(err);
