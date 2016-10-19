@@ -1,3 +1,7 @@
+@viewport{
+  zoom: 1.0;
+  width: device-width;
+}
 header{
   background-color: #222;
   color: white;
@@ -7,18 +11,11 @@ nav{
   background-color: #222;
   font-size: 24px;
 }
-.home{
-  text-align: center;
-}
-@viewport{
-  zoom: 1.0;
-  width: device-width;
-}
-.user{
-  padding: 1rem;
-}
 h2{
   text-align-last: center;
+}
+button, .submit-button{
+    border-radius: 4px;
 }
 .header{
   display: inline-flex;
@@ -34,11 +31,14 @@ h2{
   align-items: flex-start;
 }
 .home{
+  text-align: center;
   padding-top: 5em;
+}
+.user{
+  padding: 3em;
 }
 footer{
 	background-color: #222;
-  /*background-color: #40661e;*/
   color: white;
 	text-align: center;
   padding: 1em;
