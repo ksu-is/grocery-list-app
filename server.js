@@ -11,7 +11,7 @@ var session = require('express-session');
 var methodOveride = require('method-override');
 var LocalStrategy = require('passport-local').Strategy;
 mongoose.Promise = global.Promise;
-var port  = 3000 || process.env.PORT;
+var port  = process.env.PORT || 3000;
 var app = express();
 var path    = require('path');
 
@@ -24,7 +24,8 @@ var HelperController = require('./controllers/helpers.js');
 //DATABASE CONNECTION
 //=================================
 var db = mongoose.connection;
-mongoose.connect('mongodb://localhost/grocery-list' || process.env.MONGODB_URI);
+var mongoURI = process.env.MONGODB_URI || 'mongodb://localhost/grocery-list';
+mongoose.connect(mongoURI);
 
 // MIDDLEWARE / CONFIGURATION
 // ==================================
