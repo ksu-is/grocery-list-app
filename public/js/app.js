@@ -6,24 +6,23 @@
 
     this.editedItem = null;
 
-    $http.get('/helper/get-user')
+    // $http.get('/helper/get-user')
+    //   .then(function(response){
+    //     self.user = response.user;
+    //     displayUserHome(self.user);
+    //   })
+    //   .catch(function(err){
+    //     console.log(err);
+    //   });
+
+    //route to send loggd in user to their home
+    $http.get('/a')
       .then(function(response){
-        self.user = response.user;
-        displayUserHome(self.user);
+        self.items = response.data.groceryList;
       })
       .catch(function(err){
         console.log(err);
       });
-
-    function displayUserHome(username){
-      $http.get('/' + username)
-        .then(function(response){
-          self.items = response.data.groceryList;
-        })
-        .catch(function(err){
-          console.log(err);
-        });
-    };
 
     function setItemtoEditedItem(item){
         this.editedItem = item;
@@ -31,10 +30,10 @@
 
 
     function addItem(newItem){
-      $http.post('/' + self.user.username + '/add-item', newItem)
+      $http.post('/a/add-item', newItem)
         .then(function(response){
           //newItem form needs to be cleared out here
-          $state.go('home', {url: '/' + self.user.username});
+          $state.go('home', {url: '/a');
         })
         .catch(function(err){
           console.log(err);
@@ -42,7 +41,7 @@
     };
 
     function deleteItem(item){
-      $http.delete('/' + self.user.username + '/delete', item)
+      $http.delete('/a/delete', item)
         .then(function(resopnse){
           console.log(response);
           self.items = response.data.groceryList;
@@ -53,10 +52,10 @@
     };
 
     function editItem(item){
-      $http.put('/:user/edit-item', item)
+      $http.put('/a/edit-item', item)
         .then(function(response){
           console.log(response);
-          $state.go('home', {url: '/:user/home'});
+          $state.go('home', {url: '/a'});
         })
         .catch(function(err){
           console.log(err);
