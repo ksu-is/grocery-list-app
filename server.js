@@ -72,7 +72,7 @@ app.post('/register',  function(req, res){
       return res.redirect('/users/' + req.user.username);
     });
   });
-});
+});                              
 
 //USER HOME LOGIN
 //=================================
