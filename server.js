@@ -17,7 +17,7 @@ var path    = require('path');
 //=================================
 var User = require('./models/user.js');
 var UsersController = require('./controllers/users.js');
-var HelperController = require('./controllers/helper.js');
+var HelperController = require('./controllers/helpers.js');
 
 //DATABASE CONNECTION
 //=================================

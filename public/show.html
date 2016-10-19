@@ -1,7 +1,10 @@
 <h1>Show</h1>
 
 <div>
-<label>Item:</label>
-<label>Description:</label>
-<label>Favorite:</label>
+<label>Item:{{$state.params.item.name}}</label>
+<label>Description:{{$state.params.item.description}}</label>
+<label>Favorite:{{$state.params.item.favorite}}</label>
 </div>
+
+<a ui-sref="edit"><button type="button" name="Edit">EDIT</button></a>
+<button ng-click="main.deleteItem($state.params.item)" type="button" name="Delete">DELETE</button>

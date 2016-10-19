@@ -1,7 +1,7 @@
 <h1>Register</h1>
 
-<form action="/register" method="post">
-  <input type="text" name="username" placeholder="username">
-  <input type="password" name="password" placeholder="password">
+<form ng-submit='auth.register(userPass)' method="post">
+  <input ng-model="userPass.username" type="text" name="username" placeholder="username">
+  <input ng-model="userPass.password" type="password" name="password" placeholder="password">
   <button type="submit">Register</button>
 </form>

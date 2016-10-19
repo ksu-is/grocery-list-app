@@ -26,6 +26,7 @@
         this.editedItem = item;
     };
 
+
     function addItem(newItem){
       $http.post('/' + self.user.username + '/add-item', newItem)
         .then(function(response){
@@ -37,8 +38,8 @@
         });
     };
 
-    function deleteItem(itemName){
-      $http.delete('/:user/delete', itemName)
+    function deleteItem(item){
+      $http.delete('/' + self.user.username + '/delete', item)
         .then(function(resopnse){
           console.log(response);
           self.items = response.data.groceryList;
@@ -58,7 +59,7 @@
           console.log(err);
         });
     };
-
+    this.setCurrentItem = setCurrentItem;
     this.addItem = addItem;
     this.deleteItem = deleteItem;
     this.editItem = editItem;
@@ -89,7 +90,7 @@
         });
     };
 
-    function signup(userPass){
+    function register(userPass){
       $http.post('/register', {username: userPass.username, password: userPass.password})
         .then(function(response) {
           console.log(response);
@@ -111,7 +112,7 @@
     };
 
     this.login = login;
-    this.signup = signup;
+    this.register = register;
     this.logout = logout;
   });
 

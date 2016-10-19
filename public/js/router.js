@@ -5,30 +5,48 @@
   MainRouter.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
 
   function MainRouter($stateProvider, $urlRouterProvider, $locationProvider){
+
+  $urlRouterProvider.otherwise("/");
+
   $stateProvider
   .state('home', {
     url: '/',
-    templateUrl: "home.html"
+    templateUrl: "home.html",
+    controller: 'AuthCtrl',
+    controllerAs: 'auth'
   })
   .state('user', {
     url:'/user',
-    templateUrl: "user.html"
+    templateUrl: "user.html",
+    controller: 'MainCtrl',
+    controllerAs: 'main'
   })
   .state('favorites', {
     url: '/favorites',
-    templateUrl: "favorites.html"
+    templateUrl: "favorites.html",
+    controller: 'MainCtrl',
+    controllerAs: 'main'
   })
   .state('show', {
     url: '/show',
-    templateUrl: "show.html"
+    params: {
+      item: null
+    },
+    templateUrl: "show.html",
+    controller: 'MainCtrl',
+    controllerAs: 'main'
   })
   .state('edit', {
     url: '/edit',
-    templateUrl: "edit.html"
+    templateUrl: "edit.html",
+    controller: 'MainCtrl',
+    controllerAs: 'main'
   })
   .state('register', {
     url: '/register',
-    templateUrl: "register.html"
+    templateUrl: "register.html",
+    controller: 'AuthCtrl',
+    controllerAs: 'auth'
   });
 
   $urlRouterProvider.otherwise('/')
