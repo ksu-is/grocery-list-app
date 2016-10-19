@@ -9,18 +9,21 @@
     $http.get('/helper/get-user')
       .then(function(response){
         self.user = response.user;
+        displayUserHome(self.user);
       })
       .catch(function(err){
         console.log(err);
       });
 
-    $http.get('/' + self.user.username + '/home')
-      .then(function(response){
-        self.items = response.data.groceryList;
-      })
-      .catch(function(err){
-        console.log(err);
-      });
+    function displayUserHome(username){
+      $http.get('/' + username)
+        .then(function(response){
+          self.items = response.data.groceryList;
+        })
+        .catch(function(err){
+          console.log(err);
+        });
+    };
 
     function setItemtoEditedItem(item){
         this.editedItem = item;
@@ -31,7 +34,7 @@
       $http.post('/' + self.user.username + '/add-item', newItem)
         .then(function(response){
           //newItem form needs to be cleared out here
-          $state.go('home', {url: '/' + self.user.username + '/home'});
+          $state.go('home', {url: '/' + self.user.username});
         })
         .catch(function(err){
           console.log(err);
@@ -59,7 +62,7 @@
           console.log(err);
         });
     };
-    this.setCurrentItem = setCurrentItem;
+
     this.addItem = addItem;
     this.deleteItem = deleteItem;
     this.editItem = editItem;
@@ -70,20 +73,13 @@
   app.controller('AuthCtrl', function($http, $state, $stateParams){
     var self = this;
 
-    $http.get('/helper/get-user')
-      .then(function(response){
-        self.user = response.user;
-      })
-      .catch(function(err){
-        console.log(err);
-      });
-
     function login(userPass){
       $http.post('/login', {username: userPass.username, password: userPass.password})
         .then(function(response){
+          console.log(response);
           self.user = response.data.user;
 
-          $state.go('user', {url: '/user', user: response.data.user});
+          $state.go('user', {url: '/' + response.data.username});
         })
         .catch(function(err){
           console.log(err);
@@ -94,7 +90,7 @@
       $http.post('/register', {username: userPass.username, password: userPass.password})
         .then(function(response) {
           console.log(response);
-          $state.go('user', {url: '/user', user: response.data.user});
+          $state.go('user', {url: '/' + response.data.username});
         })
         .catch(function(err){
           console.log(err);

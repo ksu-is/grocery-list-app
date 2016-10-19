@@ -6,6 +6,8 @@ var mongoose = require('mongoose');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 var passport = require('passport');
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
 var methodOveride = require('method-override');
 var LocalStrategy = require('passport-local').Strategy;
 mongoose.Promise = global.Promise;
@@ -33,17 +35,18 @@ app.use("/helper", HelperController);
 
 mongoose.Promise = global.Promise;
 
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(logger('dev'));
 
 //PASSPORT
 //=================================
-app.use(require('express-session')({
+app.use(cookieParser('keyboard cat'));
+app.use(session({
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: false
-}))
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -62,22 +65,23 @@ app.get('/', function(req, res){
 //USER HOME REGISTER
 //=================================
 app.post('/register',  function(req, res){
+  console.log(req.body);
   User.register(new User({
     username: req.body.username
   }),
   req.body.password,
   function(err, user){
     req.login(user, function(err){
-      if (err) { return next(err); }
-      return res.redirect('/users/' + req.user.username);
+      if (err) {console.log(err); }
+      return res.json(user);
     });
   });
-});                              
+});
 
 //USER HOME LOGIN
 //=================================
 app.post('/login', passport.authenticate('local'), function(req, res){
-  res.redirect('/users/', req.user.username);
+  res.json(req.user);
 });
 
 

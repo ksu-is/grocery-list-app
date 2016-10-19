@@ -9,7 +9,7 @@ var User = require('../models/user');
 var Item = require('../models/item').model;
 
 
-router.get('/home', function(req, res){
+router.get('/', function(req, res){
   User.findOne({
     username: req.params.user
   }, function(err, user){

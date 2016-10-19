@@ -15,12 +15,6 @@
     controller: 'AuthCtrl',
     controllerAs: 'auth'
   })
-  .state('user', {
-    url:'/user',
-    templateUrl: "user.html",
-    controller: 'MainCtrl',
-    controllerAs: 'main'
-  })
   .state('favorites', {
     url: '/favorites',
     templateUrl: "favorites.html",
@@ -47,6 +41,12 @@
     templateUrl: "register.html",
     controller: 'AuthCtrl',
     controllerAs: 'auth'
+  })
+  .state('user', {
+    url: '/:user',
+    templateUrl: "user.html",
+    controller: 'MainCtrl',
+    controllerAs: 'main'
   });
 
   $urlRouterProvider.otherwise('/')

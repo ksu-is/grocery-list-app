@@ -4,7 +4,8 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/get-user', function(req, res){
-  var user = req.user;
+  var user = req.body.user;
+  console.log(user);
   res.json({user: user});
 });
 
