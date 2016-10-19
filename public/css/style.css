@@ -21,6 +21,10 @@ nav > button{
 }
 nav > button:focus{
   outline:0;
+  color: #268;
+}
+nav > button:hover{
+  color: #268;
 }
 h2{
   text-align-last: center;
