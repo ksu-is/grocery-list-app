@@ -11,23 +11,19 @@
     <link rel='stylesheet' href='/css/style.css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   </head>
-  <body class="body">
+  <body>
     <div>
       <header ng-controller="AuthCtrl as auth">
-        <div class="header">
-          <img src="http://i.imgur.com/v7InFiH.png" alt="shopmate-logo"/>
-          <div class="header-text">
-            <nav class="navbar navbar-dark bg-inverse">
-              <a ui-sref-active="active" ui-sref="home">Home |</a>
-              <a ui-sref-active="active" ui-sref="user">My List |</a>
-              <a ui-sref-active="active" ui-sref="favorites">Favorites</a>
-              <button ng-click="auth.logout()">| Logout</button >
+          <img src="http://i.imgur.com/r0vZupf.png" style="width:200px;" alt="shopmate-logo"/>
+            <nav>
+              <button ui-sref-active="active" ui-sref="home">Home |</button>
+              <button ui-sref-active="active" ui-sref="user">My List |</button>
+              <button ui-sref-active="active" ui-sref="favorites">Favorites |</button>
+              <button ng-click="auth.logout()">Logout</button >
             </nav>
-          </div>
-        </div>
       </header>
       <main ui-view></main>
     </div>
-    <footer><img src="http://i.imgur.com/aBV0eLv.png" alt="shopmate-logo2" style="width:95px;height:95px;"/></footer>
+    <footer><img src="http://i.imgur.com/v7InFiH.png" alt="shopmate-logo2" style="width:95px;height:95px;"/></footer>
   </body>
 </html>
