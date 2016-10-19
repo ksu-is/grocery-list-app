@@ -43,10 +43,10 @@
     };
 
     function editItem(item){
-      console.log("CURRENT ITEM TO EDIT >>>>>>>", self.itemToEdit);
-      console.log("_id's type: ", typeof self.itemToEdit._id);
+      console.log("CURRENT ITEM TO EDIT >>>>>>>", self.currentItem);
+      console.log("_id's type: ", typeof self.currentItem._id);
       $http.put('/user/edit-item', {
-          currentItemId: self.itemToEdit._id,
+          currentItemId: self.currentItem._id,
           editedItem: item
         })
         .then(function(response){
