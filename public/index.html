@@ -17,13 +17,18 @@
 =======
   <body>
     <div>
+<<<<<<< HEAD
 >>>>>>> 75a0878cef68a58da04bf3e01dd9097a06f7a171
       <header>
+=======
+      <header ng-controller="AuthCtrl as auth">
+>>>>>>> b6d8d93e515b7b4b7c521a9e727ab3d064928012
         <h1>Shopping List App</h1>
         <nav class="nav nav-pills">
-          <a ui-sref-active="active" ui-sref="home">Home |</a>
-          <a ui-sref-active="active" ui-sref="user">My Page |</a>
-          <a ui-sref-active="active" ui-sref="favorites">Favorites |</a>
+          <button ui-sref-active="active" ui-sref="home">Home</button>
+          <button ui-sref-active="active" ui-sref="user">My Page</button>
+          <button ui-sref-active="active" ui-sref="favorites">Favorites</button>
+          <button ng-click="auth.logout()">Logout</button>
         </nav>
       </header>
       <main ui-view></main>

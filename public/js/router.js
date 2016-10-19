@@ -1,5 +1,5 @@
 (function(){
-  angular.module('shopping-list', ['ui.router'])
+  angular.module('shopping-list')
   .config(MainRouter);
 
   MainRouter.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
@@ -56,5 +56,5 @@
    rewriteLinks: true
   });
 
- } //end of routes
+  }; //end of routes
 })();

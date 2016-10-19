@@ -1,5 +1,5 @@
 (function(){
-  var app = angular.module('shopping-list');
+  var app = angular.module('shopping-list', ['ui.router']);
 
   app.controller('MainCtrl', function($http, $state){
     var self = this;
@@ -101,7 +101,7 @@
         });;
     };
 
-    function logout(userPass){
+    function logout(){
       $http.delete('/logout')
         .then(function(response){
           $state.go('index', {url: '/'})
