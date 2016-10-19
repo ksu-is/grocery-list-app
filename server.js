@@ -29,9 +29,6 @@ mongoose.connect('mongodb://localhost/grocery-list' || process.env.MONGODB_URI);
 // MIDDLEWARE / CONFIGURATION
 // ==================================
 app.use(express.static(path.join(__dirname,'public')));
-app.use("/:user", UsersController);
-app.use("/helper", HelperController);
-
 
 mongoose.Promise = global.Promise;
 
@@ -55,6 +52,11 @@ passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+//MIDDLEWARE ROUTING
+//=================================
+app.use("/user", UsersController);
+app.use("/helper", HelperController);
+
 
 //USER HOME REGISTER
 //=================================
@@ -65,12 +67,13 @@ app.get('/', function(req, res){
 //USER HOME REGISTER
 //=================================
 app.post('/register',  function(req, res){
-  console.log(req.body);
+  console.log("USER REGISTRATION INFORMATION >>>>>", req.body.username);
   User.register(new User({
     username: req.body.username
   }),
   req.body.password,
   function(err, user){
+    console.log("AFTER REGISTRATION USER >>>>>>>>", user);
     req.login(user, function(err){
       if (err) {console.log(err); }
       return res.json(user);
@@ -89,7 +92,6 @@ app.post('/login', passport.authenticate('local'), function(req, res){
 //=================================
 app.delete('/logout', function(req, res){
   req.logout();
-  res.redirect('/');
 });
 
 
