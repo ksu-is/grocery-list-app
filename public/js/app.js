@@ -16,9 +16,6 @@
         console.log(err);
       });
 
-    // function setItemToEdit(item){
-    //     self.itemToEdit = item;
-    // };
 
 
     function addItem(newItem){
@@ -64,8 +61,6 @@
     this.addItem = addItem;
     this.deleteItem = deleteItem;
     this.editItem = editItem;
-    this.setItemToEdit = setItemToEdit;
-
   });
 
   app.controller('AuthCtrl', function($http, $state, $stateParams){
