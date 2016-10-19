@@ -11,7 +11,7 @@ var Item = require('../models/item').model;
 
 router.get('/', function(req, res){
   User.findOne({
-    username: req.params.user
+    username: req.user.username
   }, function(err, user){
     res.json({groceryList: user.groceryList});
   });

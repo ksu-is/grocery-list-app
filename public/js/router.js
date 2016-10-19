@@ -43,7 +43,7 @@
     controllerAs: 'auth'
   })
   .state('user', {
-    url: '/:user',
+    url: '/user',
     templateUrl: "user.html",
     controller: 'MainCtrl',
     controllerAs: 'main'
