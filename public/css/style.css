@@ -33,6 +33,9 @@ h2{
   -webkit-align-items: flex-start;
   align-items: flex-start;
 }
+.home{
+  padding-top: 5em;
+}
 footer{
 	background-color: #222;
   /*background-color: #40661e;*/
