@@ -37,6 +37,21 @@ button, .submit-button{
 .user{
   padding: 3em;
 }
+.user-list{
+  border: black;
+  text-align: center;
+  position: relative;
+/*display:inline-block;*/
+justify-content:space-around;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+/*background-color: #6496c8;*/
+background-color: #96d35f;
+border: none;
+border-radius: 15px;
+padding: 1em;
+width: 47%;
+box-shadow: 10px 10px 5px grey;
+}
 footer{
 	background-color: #222;
   color: white;
