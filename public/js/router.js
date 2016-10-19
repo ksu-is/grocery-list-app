@@ -11,13 +11,13 @@
   $stateProvider
   .state('home', {
     url: '/',
-    templateUrl: "home.html",
+    templateUrl: "/partials/home.html",
     controller: 'AuthCtrl',
     controllerAs: 'auth'
   })
   .state('favorites', {
     url: '/favorites',
-    templateUrl: "favorites.html",
+    templateUrl: "/partials/favorites.html",
     controller: 'MainCtrl',
     controllerAs: 'main'
   })
@@ -26,25 +26,25 @@
     params: {
       item: null
     },
-    templateUrl: "show.html",
+    templateUrl: "/partials/show.html",
     controller: 'MainCtrl',
     controllerAs: 'main'
   })
   .state('edit', {
     url: '/edit',
-    templateUrl: "edit.html",
+    templateUrl: "/partials/edit.html",
     controller: 'MainCtrl',
     controllerAs: 'main'
   })
   .state('register', {
     url: '/register',
-    templateUrl: "register.html",
+    templateUrl: "/partials/register.html",
     controller: 'AuthCtrl',
     controllerAs: 'auth'
   })
   .state('user', {
     url: '/user',
-    templateUrl: "user.html",
+    templateUrl: "/partials/user.html",
     controller: 'MainCtrl',
     controllerAs: 'main'
   });
