@@ -37,7 +37,7 @@ router.post('/add-item', function(req, res){
 });
 
 //Edit an existing item
-router.post('/edit-item', function(req, res){
+router.put('/edit-item', function(req, res){
   User.findOne({
     username:  req.user.username
   }, function(err, user){

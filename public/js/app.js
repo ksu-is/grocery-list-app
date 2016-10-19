@@ -16,9 +16,6 @@
         console.log(err);
       });
 
-    // function setItemToEdit(item){
-    //     self.itemToEdit = item;
-    // };
 
 
     function addItem(newItem){
@@ -46,10 +43,10 @@
     };
 
     function editItem(item){
-      console.log("CURRENT ITEM TO EDIT >>>>>>>", self.itemToEdit);
-      console.log("_id's type: ", typeof self.itemToEdit._id);
+      console.log("CURRENT ITEM TO EDIT >>>>>>>", self.currentItem);
+      console.log("_id's type: ", typeof self.currentItem._id);
       $http.put('/user/edit-item', {
-          currentItemId: self.itemToEdit._id,
+          currentItemId: self.currentItem._id,
           editedItem: item
         })
         .then(function(response){
@@ -64,8 +61,6 @@
     this.addItem = addItem;
     this.deleteItem = deleteItem;
     this.editItem = editItem;
-    this.setItemToEdit = setItemToEdit;
-
   });
 
   app.controller('AuthCtrl', function($http, $state, $stateParams){
