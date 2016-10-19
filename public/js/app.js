@@ -4,7 +4,6 @@
   app.controller('MainCtrl', function($http, $state, $stateParams){
     var self = this;
 
-    self.itemToEdit = null;
     self.currentItem = $stateParams.item;
 
     $http.get('/helper/get-user')
@@ -17,9 +16,9 @@
         console.log(err);
       });
 
-    function setItemToEdit(item){
-        self.itemToEdit = item;
-    };
+    // function setItemToEdit(item){
+    //     self.itemToEdit = item;
+    // };
 
 
     function addItem(newItem){

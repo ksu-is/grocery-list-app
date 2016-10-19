@@ -1,9 +1,9 @@
-<h1>Edit {{main.currentItem.name}}</h1>
+<h1>Edit: {{main.currentItem.name}}</h1>
 
 <form ng-submit="main.editItem(itemToEdit)">
   <input type="text" ng-model="itemToEdit.name" placeholder="Item" value="main.currentItem.name">
   <input type="text" ng-model="itemToEdit.description" placeholder="Description" value="main.currentItem.description">
-  <input type="text" ng-model="itemToEdit.favorite" placeholder="Favorite" value="main.currentItem.favorite">
+  <input type="radio" ng-model="itemToEdit.favorite" placeholder="Favorite" value="main.currentItem.favorite">
   <!-- <input type="text" ng-model="itemToEdit.completed" placeholder="Completed"> -->
   <button type="submit">Done</button>
 </form>
