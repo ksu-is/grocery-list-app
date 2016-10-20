@@ -38,13 +38,12 @@ button, .submit-button{
 #addbtn{
   height: 3em;
 }
-#list{
-  /*list-style-type: none;*/
+/*#list{
+  list-style-type: none;
   float: left;
   padding: 1em;
   text-align: center;
-  position: f;
-}
+}*/
 .home{
   text-align: center;
   padding-top: 5em;

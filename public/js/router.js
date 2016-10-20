@@ -12,8 +12,6 @@
   .state('home', {
     url: '/',
     templateUrl: "/partials/home.html",
-    controller: 'AuthCtrl',
-    controllerAs: 'auth'
   })
   .state('favorites', {
     url: '/favorites',
@@ -48,8 +46,6 @@
   .state('register', {
     url: '/register',
     templateUrl: "/partials/register.html",
-    controller: 'AuthCtrl',
-    controllerAs: 'auth'
   })
   .state('user', {
     url: '/user',
