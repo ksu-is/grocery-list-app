@@ -10,15 +10,6 @@ var Item = require('../models/item').model;
 var findItemIndex = require('../public/js/logic.js');
 
 
-router.get('/', function(req, res){
-  User.findOne({
-    username: req.user.username
-  }, function(err, user){
-    res.json({groceryList: user.groceryList});
-  });
-});
-
-
 //Adding a new item
 router.post('/add-item', function(req, res){
   console.log("new item", req.body);
@@ -26,7 +17,15 @@ router.post('/add-item', function(req, res){
     username: req.user.username
   })
   .then(function(user){
-    user.groceryList.push(req.body);
+    if(!req.body.favorite){
+      var favorite = false;
+    }
+    user.groceryList.push({
+      name: req.body.name,
+      description: req.body.descriptionn,
+      favorite: favorite,
+      purchased: false
+    });
     user.save();
     res.status("item added to list").send(user);
     console.log(user);
@@ -50,6 +49,7 @@ router.put('/edit-item', function(req, res){
       if(err) console.log(err);
       console.log("Edited Item Saved to User!!!");
     });
+    res.send("ITEM HAS BEEN EDITED!!!")
   });
 });
 

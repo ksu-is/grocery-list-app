@@ -50,7 +50,7 @@
           editedItem: item
         })
         .then(function(response){
-          console.log(response);
+          console.log(response.data);
           $state.go('user', {url: '/user'});
         })
         .catch(function(err){
