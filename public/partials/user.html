@@ -1,15 +1,10 @@
 <h2>Hello {{main.user.username}}</h2>
 
-<div class="user">
-  <div class="user-list">
-    <h3>My list</h3>
-    <p>Click on an item to edit.</p>
-    <div class="items-board" id="list" ng-repeat="item in main.user.groceryList">
-      <a ui-sref="show({item: item})">
-        <li>{{item.name}}</li>
-      </a>
-    </div>
+  <div id="frame">
+    <a class="note sticky1" ui-sref="show({item:item})" ng-repeat="item in main.user.groceryList">
+      <div class='pin'></div>
+      <div class='text'>{{item.name}}</div>
+    </a>
   </div>
   <br>
   <button class="btn btn-primary" id="addbtn" ui-sref="add">Add New Item</button>
-</div>
