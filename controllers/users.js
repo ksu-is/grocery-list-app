@@ -22,8 +22,9 @@ router.post('/add-item', function(req, res){
     }
     user.groceryList.push({
       name: req.body.name,
-      description: req.body.descriptionn,
-      favorite: favorite,
+      description: req.body.description,
+      // favorite: favorite,
+      favorite: req.body.favorite,
       purchased: false
     });
     user.save();
@@ -53,7 +54,7 @@ router.put('/edit-item', function(req, res){
   });
 });
 
-//Deleting an item id=item id
+
 router.delete('/delete', function(req, res){
   User.findOne({
     username: req.user.username
@@ -70,7 +71,6 @@ router.delete('/delete', function(req, res){
     res.json(user);
   });
 });
-
 
 
 

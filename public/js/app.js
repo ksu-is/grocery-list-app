@@ -31,8 +31,8 @@
         });
     };
 
-    function deleteItem(){
-      $http.delete('/user/delete', {currentItemId: self.currentItem._id})
+    function deleteItem(item){
+      $http.delete('/user/delete', item)
         .then(function(response){
           console.log("ITEM HAS BEEN DELETED FROM USER >>>>>>>>", response.data);
           // self.items = response.data.groceryList;
@@ -97,7 +97,7 @@
         })
         .catch(function(err){
           console.log(err);
-        });;
+        });
     };
 
     function logout(){

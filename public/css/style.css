@@ -58,6 +58,9 @@ button, .submit-button{
   width: 47%;
   box-shadow: 10px 10px 5px grey;
 }
+.edit-show{
+  padding: 2em;
+}
 footer{
 	background-color: #222;
   color: white;
