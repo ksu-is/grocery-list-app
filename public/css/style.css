@@ -35,15 +35,18 @@ h2{
 button, .submit-button{
     border-radius: 4px;
 }
+a{
+  font-size: 18px;
+}
 #addbtn{
   height: 3em;
 }
-/*#list{
+#list{
   list-style-type: none;
-  float: left;
+  /*float: left;
   padding: 1em;
-  text-align: center;
-}*/
+  text-align: center;*/
+}
 .home{
   text-align: center;
   padding-top: 5em;

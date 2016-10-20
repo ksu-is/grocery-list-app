@@ -17,7 +17,7 @@
       })
       .then(function(items){
         for (var i = 0; i<items.length; i++){
-          if(items[i].favorite = "true"){
+          if(items[i].favorite){
             self.favorites.push(items[i]);
           }
         }
@@ -31,8 +31,6 @@
       $http.post('/user/add-item', newItem)
         .then(function(response){
           console.log("ITEM HAS BEEN ADDED TO USER >>>>>>>", response.data.groceryList);
-          //newItem form needs to be cleared out here
-          // self.items = response.data.groceryList;
           $state.go('user', {url: '/user'});
         })
         .catch(function(err){
@@ -46,7 +44,6 @@
       $http.delete(`/user/delete/${self.currentItem._id}`)
         .then(function(response){
           console.log("ITEM HAS BEEN DELETED FROM USER >>>>>>>>", response.data);
-          // self.items = response.data.groceryList;
           $state.go('user', {url: '/user'});
         })
         .catch(function(err){
@@ -56,6 +53,7 @@
 
     function editItem(item){
       console.log("CURRENT ITEM TO EDIT >>>>>>>", self.currentItem);
+      console.log("EDITED ITEM RESULTS >>>>>>>", item);
       console.log("_id: ", self.currentItem._id);
       $http.put('/user/edit-item', {
           currentItemId: self.currentItem._id,
@@ -63,7 +61,6 @@
         })
         .then(function(response){
           console.log(response.data);
-          // self.items = response.data.groceryList;
           $state.go('user', {url: '/user'});
         })
         .catch(function(err){
