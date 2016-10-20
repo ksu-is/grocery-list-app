@@ -1,13 +1,15 @@
 <h2>Hello {{main.user.username}}</h2>
+
 <div class="user">
   <div class="user-list">
     <h3>My list</h3>
-    <div class="items-board" ng-repeat="item in main.user.groceryList">
+    <p>Click on an item to edit.</p>
+    <div class="items-board" id="list" ng-repeat="item in main.user.groceryList">
       <a ui-sref="show({item: item})">
         <li>{{item.name}}</li>
       </a>
     </div>
   </div>
 
-  <button ui-sref="add">Add New Item</button>
+  <button class="btn btn-primary" id="addbtn" ui-sref="add">Add New Item</button>
 </div>
