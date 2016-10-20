@@ -55,14 +55,19 @@ router.put('/edit-item', function(req, res){
 
 //Deleting an item id=item id
 router.delete('/delete', function(req, res){
-  User.findOne({username: req.params.username}, function(err, user){
-    var itemIndex = user.groceryList.indexOf({name: req.body.item.name});
+  User.findOne({
+    username: req.user.username
+  }, function(err, user){
+    var itemIndex = findItemIndex(req.body.currentItemId, user.groceryList);
+
     user.groceryList.splice(itemIndex, 1);
 
     user.save(function(err){
       if(err) console.log(err);
       console.log("Item deleted from User");
     });
+
+    res.send('ITEM DELETED!!!');
   });
 });
 
