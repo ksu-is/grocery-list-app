@@ -17,7 +17,15 @@ router.post('/add-item', function(req, res){
     username: req.user.username
   })
   .then(function(user){
-    user.groceryList.push(req.body);
+    if(!req.body.favorite){
+      var favorite = false;
+    }
+    user.groceryList.push({
+      name: req.body.name,
+      description: req.body.descriptionn,
+      favorite: favorite,
+      purchased: false
+    });
     user.save();
     res.status("item added to list").send(user);
     console.log(user);
