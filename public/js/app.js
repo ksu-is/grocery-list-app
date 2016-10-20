@@ -23,7 +23,7 @@
         .then(function(response){
           console.log("ITEM HAS BEEN ADDED TO USER >>>>>>>", response.data.groceryList);
           //newItem form needs to be cleared out here
-          self.items = response.data.groceryList;
+          // self.items = response.data.groceryList;
           $state.go('user', {url: '/user'});
         })
         .catch(function(err){
@@ -31,8 +31,10 @@
         });
     };
 
-    function deleteItem(item){
-      $http.delete('/user/delete', item)
+    function deleteItem(){
+      console.log("CURRENT ITEM TO DELETE >>>>>>>", self.currentItem);
+      console.log("_id: ", self.currentItem._id);
+      $http.delete(`/user/delete/${self.currentItem._id}`)
         .then(function(response){
           console.log("ITEM HAS BEEN DELETED FROM USER >>>>>>>>", response.data);
           // self.items = response.data.groceryList;
@@ -45,7 +47,7 @@
 
     function editItem(item){
       console.log("CURRENT ITEM TO EDIT >>>>>>>", self.currentItem);
-      console.log("_id's type: ", typeof self.currentItem._id);
+      console.log("_id: ", self.currentItem._id);
       $http.put('/user/edit-item', {
           currentItemId: self.currentItem._id,
           editedItem: item

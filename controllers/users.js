@@ -41,6 +41,7 @@ router.put('/edit-item', function(req, res){
   User.findOne({
     username:  req.user.username
   }, function(err, user){
+    console.log("CURRENT ITEM ID", req.body);
     //function to find Item in groceryList
     var itemIndex = findItemIndex(req.body.currentItemId, user.groceryList);
 
@@ -55,12 +56,13 @@ router.put('/edit-item', function(req, res){
 });
 
 
-router.delete('/delete', function(req, res){
+router.delete('/delete/:id', function(req, res){
   User.findOne({
     username: req.user.username
   }, function(err, user){
-    var itemIndex = findItemIndex(req.body.currentItemId, user.groceryList);
-
+    console.log("CURRENT ITEM ID", req.params.id);
+    var itemIndex = findItemIndex(req.params.id, user.groceryList);
+    console.log("ITEM INDEX", itemIndex);
     user.groceryList.splice(itemIndex, 1);
 
     user.save(function(err){
