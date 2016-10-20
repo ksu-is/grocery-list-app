@@ -23,7 +23,8 @@ router.post('/add-item', function(req, res){
     user.groceryList.push({
       name: req.body.name,
       description: req.body.description,
-      favorite: favorite,
+      // favorite: favorite,
+      favorite: req.body.favorite,
       purchased: false
     });
     user.save();
