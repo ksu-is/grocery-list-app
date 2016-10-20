@@ -30,32 +30,17 @@
           console.log(err);
         });
     };
-    //DELETE FUNCTION ORIGINAL ***************
-    // function deleteItem(item){
-    //   $http.delete('/user/delete', item)
-    //     .then(function(resopnse){
-    //       console.log(response);
-    //       self.items = response.data.groceryList;
-    //     })
-    //     .catch(function(err){
-    //       console.log(err);
-    //     });
-    // };
-    //****************************
 
-    ////Zarela's DELETE version *******
     function deleteItem(item){
-      // var item = req.params.id;
       $http.delete('/user/delete', item)
         .then(function(response){
           console.log(response);
-          // self.items = response.data.groceryList; //***original
           self.items = response.data.groceryList;
-          $state.go('user', {url: '/user'});
         })
+        .catch(function(err){
+          console.log(err);
+        });
     };
-    //*********************************
-
 
     function editItem(item){
       console.log("CURRENT ITEM TO EDIT >>>>>>>", self.currentItem);
@@ -102,7 +87,7 @@
         })
         .catch(function(err){
           console.log(err);
-        });;
+        });
     };
 
     function logout(){

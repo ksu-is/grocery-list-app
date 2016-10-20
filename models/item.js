@@ -5,7 +5,7 @@ var ItemSchema = new Schema({
   name: String,
   description: String,
   favorite:  Boolean,
-  completed: Boolean
+  purchased: Boolean
 });
 
 var ItemModel = mongoose.model('Item', ItemSchema);

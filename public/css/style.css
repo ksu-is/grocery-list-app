@@ -10,6 +10,17 @@ header{
 nav{
   background-color: #222;
   font-size: 24px;
+  float:right;
+  margin-top: 80px;
+}
+nav > button{
+  color: #38b;
+  background-color: none;
+  background: none;
+  border: none;
+}
+nav > button:focus{
+  outline:0;
 }
 h2{
   text-align-last: center;
@@ -17,20 +28,7 @@ h2{
 button, .submit-button{
     border-radius: 4px;
 }
-.header{
-  display: inline-flex;
-}
-.header-text{
-  display:flex;
-  align-self: flex-end;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: flex-start;
-  align-items: flex-start;
-}
-.home, .register{
+.home{
   text-align: center;
   padding-top: 5em;
 }
