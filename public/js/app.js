@@ -32,6 +32,8 @@
     };
 
     function deleteItem(item){
+      console.log("CURRENT ITEM TO DELETE >>>>>>>", self.currentItem);
+      console.log("_id: ", self.currentItem._id);
       $http.delete('/user/delete', item)
         .then(function(response){
           console.log("ITEM HAS BEEN DELETED FROM USER >>>>>>>>", response.data);
@@ -45,7 +47,7 @@
 
     function editItem(item){
       console.log("CURRENT ITEM TO EDIT >>>>>>>", self.currentItem);
-      console.log("_id's type: ", typeof self.currentItem._id);
+      console.log("_id: ", self.currentItem._id);
       $http.put('/user/edit-item', {
           currentItemId: self.currentItem._id,
           editedItem: item
