@@ -27,7 +27,7 @@ router.post('/add-item', function(req, res){
       purchased: false
     });
     user.save();
-    res.status("item added to list").send(user);
+    res.json(user);
     console.log(user);
   })
   .catch(function(err){
@@ -49,7 +49,7 @@ router.put('/edit-item', function(req, res){
       if(err) console.log(err);
       console.log("Edited Item Saved to User!!!");
     });
-    res.send("ITEM HAS BEEN EDITED!!!")
+    res.json(user);
   });
 });
 
@@ -67,7 +67,7 @@ router.delete('/delete', function(req, res){
       console.log("Item deleted from User");
     });
 
-    res.send('ITEM DELETED!!!');
+    res.json(user);
   });
 });
 
