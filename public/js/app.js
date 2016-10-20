@@ -31,10 +31,10 @@
         });
     };
 
-    function deleteItem(item){
+    function deleteItem(){
       console.log("CURRENT ITEM TO DELETE >>>>>>>", self.currentItem);
       console.log("_id: ", self.currentItem._id);
-      $http.delete('/user/delete', item)
+      $http.delete(`/user/delete/${self.currentItem._id}`)
         .then(function(response){
           console.log("ITEM HAS BEEN DELETED FROM USER >>>>>>>>", response.data);
           // self.items = response.data.groceryList;
