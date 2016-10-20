@@ -67,23 +67,16 @@
     this.editItem = editItem;
   });
 
-  app.controller('AuthCtrl', function($http, $state, $stateParams){
+  app.controller('AuthCtrl', function($scope, $http, $state, $stateParams){
     var self = this;
 
-    $http.get('/helper/get-user')
-      .then(function(response){
-        console.log("HELPER RESPONSE >>>>", response.data.user);
-        self.user = response.data.user;
-        console.log("current user status", self.user);
-      })
-      .catch(function(err){
-        console.log(err);
-      });
+    self.isLoggedIn = false;
 
     function login(userPass){
       $http.post('/login', {username: userPass.username, password: userPass.password})
         .then(function(response){
           console.log(response);
+          self.isLoggedIn = true;
           $state.go('user', {url: '/user'});
         })
         .catch(function(err){
@@ -95,6 +88,7 @@
       $http.post('/register', {username: userPass.username, password: userPass.password})
         .then(function(response) {
           console.log(response);
+          self.isLoggedIn = true;
           $state.go('user', {url: '/user'});
         })
         .catch(function(err){
@@ -107,6 +101,7 @@
       $http.delete('/logout')
         .then(function(response){
           console.log(response);
+          self.isLoggedIn = false;
           $state.go('home', {url: '/'});
         })
         .catch(function(err){
