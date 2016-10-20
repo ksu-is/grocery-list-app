@@ -16,10 +16,13 @@
       <header ng-controller="AuthCtrl as auth">
           <img src="http://i.imgur.com/r0vZupf.png" style="width:200px;" alt="shopmate-logo"/>
             <nav>
-              <button ui-sref-active="active" ui-sref="home">Home |</button>
-              <button ui-sref-active="active" ui-sref="user">My List |</button>
-              <button ui-sref-active="active" ui-sref="favorites">Favorites |</button>
-              <button ng-click="auth.logout()">Logout</button >
+              <button ui-sref-active="active" ui-sref="home">Home</button>
+              <span class="divider">|</span>
+              <button ui-sref-active="active" ui-sref="user">My List</button>
+              <span class="divider">|</span>
+              <button ui-sref-active="active" ui-sref="favorites">Favorite</button>
+              <span ng-if="auth.user !== undefined" class="divider">|</span>
+              <button ng-if="auth.user !== undefined" ng-click="auth.logout()">Logout</button >
             </nav>
       </header>
       <main ui-view></main>
