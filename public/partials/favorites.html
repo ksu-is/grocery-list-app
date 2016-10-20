@@ -1,1 +1,4 @@
 <h2>Favorite Items</h2>
+<ul ng-repeat="item in main.favorites">
+<li ui-sref="show({item: item})">{{item.item}}</li>
+</ul>
