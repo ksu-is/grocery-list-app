@@ -11,9 +11,11 @@
 
   <div class="add-item">
     <form ng-submit="main.addItem(newItem)" method="post">
-      <input ng-model="newItem.name" type="text" name="name" value="item">
+      <label>Item: </label><br>
+      <input ng-model="newItem.name" type="text" name="name" value="item"><br><br>
+      <label>Description: </label><br>
       <input ng-model="newItem.description" type="text" name="description" value="description"><br><br>
-      <label for="favorite"><input ng-model="newItem.favorite" type="checkbox" value="true">Favorite?</label>
+      <label for="favorite"><input ng-model="newItem.favorite" type="checkbox" value="true"> Favorite?</label>
 
       <br><br>
       <input class="submit-button" type="submit" name="name" value="Add New">
