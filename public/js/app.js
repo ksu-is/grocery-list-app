@@ -16,8 +16,6 @@
         console.log(err);
       });
 
-
-
     function addItem(newItem){
       console.log("new item", newItem);
       $http.post('/user/add-item', newItem)
