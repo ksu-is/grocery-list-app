@@ -21,6 +21,12 @@
     controller: 'MainCtrl',
     controllerAs: 'main'
   })
+  .state('add', {
+    url: '/add',
+    templateUrl: "/partials/add.html",
+    controller: 'MainCtrl',
+    controllerAs: 'main'
+  })
   .state('show', {
     url: '/show',
     params: {
