@@ -23,7 +23,7 @@
         .then(function(response){
           console.log("ITEM HAS BEEN ADDED TO USER >>>>>>>", response.data.groceryList);
           //newItem form needs to be cleared out here
-          self.items = response.data.groceryList;
+          // self.items = response.data.groceryList;
           $state.go('user', {url: '/user'});
         })
         .catch(function(err){
