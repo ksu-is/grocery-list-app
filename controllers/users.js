@@ -17,7 +17,15 @@ router.post('/add-item', function(req, res){
     username: req.user.username
   })
   .then(function(user){
-    user.groceryList.push(req.body);
+    if(!req.body.favorite){
+      var favorite = false;
+    }
+    user.groceryList.push({
+      name: req.body.name,
+      description: req.body.descriptionn,
+      favorite: favorite,
+      purchased: false
+    });
     user.save();
     res.status("item added to list").send(user);
     console.log(user);
@@ -46,14 +54,19 @@ router.post('/edit-item', function(req, res){
 
 //Deleting an item id=item id
 router.delete('/delete', function(req, res){
-  User.findOne({username: req.params.username}, function(err, user){
-    var itemIndex = user.groceryList.indexOf({name: req.body.item.name});
+  User.findOne({
+    username: req.user.username
+  }, function(err, user){
+    var itemIndex = findItemIndex(req.body.currentItemId, user.groceryList);
+
     user.groceryList.splice(itemIndex, 1);
 
     user.save(function(err){
       if(err) console.log(err);
       console.log("Item deleted from User");
     });
+
+    res.send('ITEM DELETED!!!');
   });
 });
 

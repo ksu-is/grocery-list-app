@@ -31,11 +31,12 @@
         });
     };
 
-    function deleteItem(item){
-      $http.delete('/user/delete', item)
-        .then(function(resopnse){
-          console.log(response);
+    function deleteItem(){
+      $http.delete('/user/delete', {currentItemId: self.currentItem._id})
+        .then(function(response){
+          console.log(response.data);
           self.items = response.data.groceryList;
+          $state.go('user', {url: '/user'});
         })
         .catch(function(err){
           console.log(err);
