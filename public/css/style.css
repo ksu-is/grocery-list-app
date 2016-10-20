@@ -11,7 +11,7 @@ nav{
   background-color: #222;
   font-size: 24px;
   float:right;
-  margin-top: 80px;
+  margin-top: 70px;
 }
 nav > button{
   color: #38b;
@@ -21,10 +21,13 @@ nav > button{
 }
 nav > button:focus{
   outline:0;
-  color: #268;
+  color: #257;
 }
 nav > button:hover{
-  color: #268;
+  color: #257;
+}
+.divider{
+  color: #38b;
 }
 h2{
   text-align-last: center;
