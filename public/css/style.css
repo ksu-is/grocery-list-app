@@ -35,7 +35,7 @@ h2{
 button, .submit-button{
     border-radius: 4px;
 }
-.home{
+.home, .edit-page{
   text-align: center;
   padding-top: 5em;
 }

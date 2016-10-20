@@ -1,9 +1,8 @@
 <h1>{{main.currentItem.name}}</h1>
 
 <div>
-<label>Description:{{main.currentItem.description}}</label>
-<label>Favorite:{{main.currentItem.favorite}}</label>
+  <label>Description:{{main.currentItem.description}}</label>
+  <label>Favorite:{{main.currentItem.favorite}}</label>
 </div>
-
 <button ui-sref="edit({item: main.currentItem})" ng-click="main.setItemToEdit(main.currentItem)" name="Edit">EDIT</button>
 <button ng-click="main.deleteItem()" type="button" name="Delete">DELETE</button>
