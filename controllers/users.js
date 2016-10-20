@@ -53,7 +53,7 @@ router.put('/edit-item', function(req, res){
   });
 });
 
-//Deleting an item id=item id
+
 router.delete('/delete', function(req, res){
   User.findOne({username: req.params.username}, function(err, user){
     var itemIndex = user.groceryList.indexOf({name: req.body.item.name});
@@ -65,7 +65,6 @@ router.delete('/delete', function(req, res){
     });
   });
 });
-
 
 
 
