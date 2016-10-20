@@ -31,7 +31,7 @@
         });
     };
 
-    function deleteItem(item){
+    function deleteItem(itemName){
       $http.delete('/user/delete', item)
         .then(function(resopnse){
           console.log(response);
