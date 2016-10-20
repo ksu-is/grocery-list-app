@@ -5,6 +5,7 @@
     var self = this;
 
     self.currentItem = $stateParams.item;
+    self.favorites = [];
 
     $http.get('/helper/get-user')
       .then(function(response){
@@ -12,6 +13,14 @@
         self.user = response.data.user;
         self.items = response.data.user.groceryList;
         console.log("current user status", self.user);
+        return self.items;
+      })
+      .then(function(items){
+        for (var i = 0; i<items.length; i++){
+          if(items[i].favorite = "true"){
+            self.favorites.push(items[i]);
+          }
+        }
       })
       .catch(function(err){
         console.log(err);
