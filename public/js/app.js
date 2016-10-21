@@ -12,25 +12,31 @@
         console.log("HELPER RESPONSE >>>>", response.data.user);
         self.user = response.data.user;
         self.items = response.data.user.groceryList;
+        self.favorites = response.data.user.favorites;
         console.log("current user status", self.user);
-        return self.items;
-      })
-      .then(function(items){
-        for (var i = 0; i<items.length; i++){
-          if(items[i].favorite){
-            self.favorites.push(items[i]);
-          }
-        }
       })
       .catch(function(err){
         console.log(err);
       });
 
     function addItem(newItem){
+      //call add favorite function it favorite was selected
       console.log("new item", newItem);
       $http.post('/user/add-item', newItem)
         .then(function(response){
           console.log("ITEM HAS BEEN ADDED TO USER >>>>>>>", response.data.groceryList);
+          $state.go('user', {url: '/user'});
+        })
+        .catch(function(err){
+          console.log(err);
+        });
+    };
+
+    function addFavorite(item){
+      console.log("new favorite", item);
+      $http.post('/user/favorite-item', item)
+        .then(function(response){
+          console.log("ITEM HAS BEEN FAVORITED BY USER >>>>>>>", response.data.groceryList);
           $state.go('user', {url: '/user'});
         })
         .catch(function(err){
@@ -44,6 +50,19 @@
       $http.delete(`/user/delete/${self.currentItem._id}`)
         .then(function(response){
           console.log("ITEM HAS BEEN DELETED FROM USER >>>>>>>>", response.data);
+          $state.go('user', {url: '/user'});
+        })
+        .catch(function(err){
+          console.log(err);
+        });
+    };
+
+    function unFavorite(){
+      console.log("CURRENT ITEM TO UNFAVORITE >>>>>>>", self.currentItem);
+      console.log("_id: ", self.currentItem._id);
+      $http.delete(`/user/unfavorite-item/${self.currentItem._id}`)
+        .then(function(response){
+          console.log("ITEM HAS BEEN UNFAVORITED FROM USER >>>>>>>>", response.data);
           $state.go('user', {url: '/user'});
         })
         .catch(function(err){
@@ -71,6 +90,8 @@
     this.addItem = addItem;
     this.deleteItem = deleteItem;
     this.editItem = editItem;
+    this.addFavorite = addFavorite;
+    this.unFavorite = unFavorite;
   });
 
   app.controller('AuthCtrl', function($scope, $http, $state, $stateParams){

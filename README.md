@@ -14,7 +14,7 @@ This application features authentication of a user after registration and login.
 
 ## Original Wireframe
 
-Wireframe File](https://drive.google.com/open?id=0B9p6hJKmZMZEMlRSRXdWUTFaQ00)
+[Wireframe File] (https://drive.google.com/open?id=0B9p6hJKmZMZEMlRSRXdWUTFaQ00)
 
 ## User Stories
 
@@ -64,3 +64,5 @@ User can:
 ### Copyrights
 Art used:
 Board on user page: https://raw.githubusercontent.com/rheh/CSS-Sticky-Notes/master/cork_board.gif
+Show page: https://www.arcticbuyingco.com/wp-content/uploads/2016/06/groceries.png
+Edit page: http://bensfruitveg.com/wp-content/uploads/2014/10/groceries-crate.png
