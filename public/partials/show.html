@@ -1,8 +1,7 @@
 <div class="home">
   <h2 id="font1">{{main.currentItem.name}}</h2>
   <div>
-    <label>Description: {{main.currentItem.description}}</label><br>
-    <label>Favorite: {{main.currentItem.favorite}}</label><br>
+    <label ng-show="main.currentItem.description">Description: {{main.currentItem.description}}</label><br>
   </div>
   <button ui-sref="edit({item: main.currentItem})" ng-click="main.setItemToEdit(main.currentItem)" name="Edit">EDIT</button>
   <button ng-click="main.deleteItem()" name="Delete">DELETE</button>
