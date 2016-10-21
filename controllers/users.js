@@ -69,6 +69,9 @@ router.put('/edit-item', function(req, res){
     var itemIndex = findItemIndex(req.body.currentItemId, user.groceryList);
     console.log("THIS IS THE EDITED ITEM RESULTS", req.body.editedItem);
     user.groceryList[itemIndex] = req.body.editedItem;
+    
+    // var favIndex = findItemIndex(req.body.currentItemId, user.favorites);
+    // user.favorites[favIndex] = req.body.editedItem;
 
     user.save(function(err){
       if(err) console.log(err);
