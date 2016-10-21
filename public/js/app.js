@@ -12,19 +12,14 @@
         console.log("HELPER RESPONSE >>>>", response.data.user);
         self.user = response.data.user;
         self.items = response.data.user.groceryList;
+        self.favorites = response.data.user.favorites;
         console.log("current user status", self.user);
         return self.items;
-      })
-      .then(function(items){
-        for (var i = 0; i<items.length; i++){
-          if(items[i].favorite){
-            self.favorites.push(items[i]);
-          }
-        }
       })
       .catch(function(err){
         console.log(err);
       });
+      
 
     function addItem(newItem){
       //call add favorite function it favorite was selected
