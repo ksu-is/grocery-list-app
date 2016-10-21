@@ -7,7 +7,8 @@ var ItemSchema = require('./item.js').schema;
 var UserSchema = new Schema({
   username: String,
   password: String,
-  groceryList: [ItemSchema]
+  groceryList: [ItemSchema],
+  favorites: [ItemSchema]
 });
 
 UserSchema.plugin(passportLocalMongoose);
