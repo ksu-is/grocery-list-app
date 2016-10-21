@@ -2,63 +2,80 @@
   zoom: 1.0;
   width: device-width;
 }
+
 header{
   background-color: #222;
   color: white;
   padding: 1em;
 }
+
 nav{
   background-color: #222;
   font-size: 24px;
   float:right;
   margin-top: 72px;
 }
+
 nav > button{
   color: #38b;
   background-color: none;
   background: none;
   border: none;
 }
+
 nav > button:focus{
   outline:0;
   color: #257;
 }
+
 nav > button:hover{
   color: #257;
 }
+
 .divider{
   color: #38b;
 }
+
 h2{
   text-align-last: center;
+  text-transform:capitalize;
 }
 
-h2, #bungee{
+/*h2, #font1{
   font-family: 'Bungee Inline', cursive;
 }
-h2, #montserrat{
+h2, #font2{
   font-family: 'Montserrat', sans-serif;
-}
+}*/
 
 button, .submit-button{
     border-radius: 4px;
 }
+
 a{
   font-size: 18px;
 }
+
 #addbtn{
   height: 3em;
+  position: absolute;
+  right: 35px;
+  top: 209px;
 }
+
 #list{
   list-style-type: none;
   /*float: left;
   padding: 1em;
   text-align: center;*/
 }
+
 .home{
   text-align: center;
   padding-top: 5em;
+  text-transform:capitalize;
 }
+
 .user{
   padding: 3em;
   display:flex;
@@ -67,12 +84,13 @@ a{
 }
 
 div#frame {
-    background-image: url(https://raw.githubusercontent.com/rheh/CSS-Sticky-Notes/master/cork_board.gif);
+    background-image: url(http://i.imgur.com/S6pAPZF.png);
     background-repeat: no-repeat;
     width: 800px;
     height: 600px;
     padding-top: 35px;
     padding-left: 35px;
+    margin: auto;
 }
 
 .note {
@@ -103,13 +121,6 @@ div#frame {
   -moz-transform: rotate(1deg);
   background-color: #CBFAFA;
 }
-
-/*.sticky1 {
-    transform: rotate(-3.5deg);
-    -webkit-transform: rotate(-3.5deg);
-    -moz-transform: rotate(-3.5deg);
-    background-color: #CBFAFA;
-}*/
 
 .text {
     margin: 10px;
