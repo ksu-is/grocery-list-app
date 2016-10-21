@@ -1,7 +1,7 @@
 <h2 id="font1">{{main.user.username}}'s Grocery List</h2>
 
   <div id="frame">
-    <a class="note sticky1" ui-sref="show({item:item})" ng-repeat="item in main.user.groceryList">
+    <a class="note sticky1" ng-click="main.getImage(item.name)" ui-sref="show({item:item})" ng-repeat="item in main.user.groceryList">
       <div class='pin'></div>
       <div class='text'>{{item.name}}</div>
       <div class='text'>{{item.description}}</div>

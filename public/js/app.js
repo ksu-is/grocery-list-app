@@ -19,6 +19,27 @@
         console.log(err);
       });
 
+    function getImage(itemName){
+      var flickrUrl = "https://api.flickr.com/services/rest/?method=flickr.photos.search";
+      var clientKey = "&api_key=62a388ae4bc38dc68c9eae547b8df17b";
+      var tags = "&tags=" + itemName;
+      var perPage = "&per_page=10";
+      var format = "&format=json";
+      var sort = "&sort=relevance";
+
+      $http.get(flickrUrl+clientKey+tags+sort+perPage+format)
+        .then(function(response){
+          console.log(response.data);
+          var imgSRC = "https://www.flickr.com/photos/"; // + /owner/id
+          var owner = response.data.photos.photo[1].owner + '/';
+          var id = response.data.photos.photo[1].id;
+          self.imageURL = imgSRC + owner + id
+        })
+        .catch(function(err){
+          console.log(err);
+        });
+    };
+
     function addItem(newItem){
       //call add favorite function it favorite was selected
       console.log("new item", newItem);
@@ -92,6 +113,7 @@
     this.editItem = editItem;
     this.addFavorite = addFavorite;
     this.unFavorite = unFavorite;
+    this.getImage = getImage;
 
   });
 
