@@ -20,7 +20,6 @@
         console.log(err);
       });
 
-
     function addItem(newItem){
       //call add favorite function it favorite was selected
       console.log("new item", newItem);
@@ -94,6 +93,7 @@
     this.editItem = editItem;
     this.addFavorite = addFavorite;
     this.unFavorite = unFavorite;
+
   });
 
   app.controller('AuthCtrl', function($scope, $http, $state, $stateParams){
