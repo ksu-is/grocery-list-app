@@ -4,7 +4,7 @@
     <label ng-show="main.currentItem.description">Description: {{main.currentItem.description}}</label><br>
   </div>
   <div class="show-img">
-    <img id="item-pic" src="" />
+    <img id="item-pic" ng-src="{{main.imageURL}}" />
   </div>
   <button ui-sref="edit({item: main.currentItem})" ng-click="main.setItemToEdit(main.currentItem)" name="Edit">EDIT</button>
   <button ng-click="main.deleteItem()" name="Delete">DELETE</button>

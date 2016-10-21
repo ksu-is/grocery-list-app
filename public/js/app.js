@@ -26,14 +26,16 @@
       var perPage = "&per_page=10";
       var format = "&format=json";
       var sort = "&sort=relevance";
+      var callback = "&jsoncallback=JSON_CALLBACK";
 
-      $http.get(flickrUrl+clientKey+tags+sort+perPage+format)
+      $http.jsonp(flickrUrl+clientKey+tags+sort+perPage+format+callback)
         .then(function(response){
-          console.log(response.data);
-          var imgSRC = "https://www.flickr.com/photos/"; // + /owner/id
-          var owner = response.data.photos.photo[1].owner + '/';
-          var id = response.data.photos.photo[1].id;
-          self.imageURL = imgSRC + owner + id
+          console.log(response.photos);
+          // var imgSRC = "https://www.flickr.com/photos/"; // + /owner/id
+          // var owner = response.data.photos.photo[1].owner + '/';
+          // var id = response.data.photos.photo[1].id;
+          // self.imageURL = imgSRC + owner + id;
+          // console.log("IMAGE URL >>>>>", self.imageURL);
         })
         .catch(function(err){
           console.log(err);
