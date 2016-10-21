@@ -2,74 +2,55 @@
   zoom: 1.0;
   width: device-width;
 }
-
 header{
   background-color: #222;
   color: white;
   padding: 1em;
 }
-
 nav{
   background-color: #222;
   font-size: 24px;
   float:right;
   margin-top: 72px;
 }
-
 nav > button{
   color: #38b;
   background-color: none;
   background: none;
   border: none;
 }
-
 nav > button:focus{
   outline:0;
   color: #257;
 }
-
 nav > button:hover{
   color: #257;
 }
-
 .divider{
   color: #38b;
 }
-
 h2{
   text-align-last: center;
-  text-transform:capitalize;
 }
-
 button, .submit-button{
     border-radius: 4px;
 }
-
 a{
   font-size: 18px;
 }
-
 #addbtn{
   height: 3em;
-  float: right;
-  margin-top: -650px;
-  margin-left: 30px;
-  display: inline;
-  position: absolute;
 }
-
 #list{
   list-style-type: none;
   /*float: left;
   padding: 1em;
   text-align: center;*/
 }
-
 .home{
   text-align: center;
   padding-top: 5em;
 }
-
 .user{
   padding: 3em;
   display:flex;
@@ -78,16 +59,12 @@ a{
 }
 
 div#frame {
-    background-image: url(http://i.imgur.com/S6pAPZF.png);
+    background-image: url(https://raw.githubusercontent.com/rheh/CSS-Sticky-Notes/master/cork_board.gif);
     background-repeat: no-repeat;
     width: 800px;
     height: 600px;
     padding-top: 35px;
     padding-left: 35px;
-    margin: 30px auto;
-    /*box-shadow: 0 3px 6px rgba(0,0,0,.25);
-    -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.25);
-    -moz-box-shadow: 0 3px 6px rgba(0,0,0,.25);*/
 }
 
 .note {
@@ -118,6 +95,13 @@ div#frame {
   -moz-transform: rotate(1deg);
   background-color: #CBFAFA;
 }
+
+/*.sticky1 {
+    transform: rotate(-3.5deg);
+    -webkit-transform: rotate(-3.5deg);
+    -moz-transform: rotate(-3.5deg);
+    background-color: #CBFAFA;
+}*/
 
 .text {
     margin: 10px;
@@ -158,11 +142,6 @@ div#frame a:hover.note {
     -webkit-transform: scale(1.1);
     -moz-transform: scale(1.1);
     transform: scale(1.1);
-}
-
-.edit-show{
->>>>>>> 6ea3c0d024afa2affc14e9d527208bfcfce4b95f
-  padding: 2em;
 }
 
 footer{
