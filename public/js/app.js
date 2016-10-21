@@ -13,24 +13,11 @@
         self.user = response.data.user;
         self.items = response.data.user.groceryList;
         self.favorites = response.data.user.favorites;
-        self.isFavorite = checkListForItem(self.currentItem, self.favorites);
-        self.isItemPresent = checkListForItem(self.currentItem, self.items);
         console.log("current user status", self.user);
-        return self.items;
       })
       .catch(function(err){
         console.log(err);
       });
-
-    function checkListForItem(item, list){
-      var isPresent = false;
-      for(var i = 0; i < list.length; i ++){
-        if(list[i]._id === item._id){
-          isPresent = true;
-        }
-      }
-      return isPresent;
-    };
 
     function addItem(newItem){
       //call add favorite function it favorite was selected

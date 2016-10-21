@@ -5,7 +5,7 @@
     <label>Favorite: {{main.currentItem.favorite}}</label><br>
   </div>
   <button ui-sref="edit({item: main.currentItem})" ng-click="main.setItemToEdit(main.currentItem)" name="Edit">EDIT</button>
-  <button ng-show="main.isItemPresent" ng-click="main.deleteItem()" name="Delete">DELETE</button>
-  <button ng-hide="main.isFavorite" ng-click="main.addFavorite(main.currentItem)" name="Favorite">FAVORITE</button>
-  <button ng-hide="main.isFavorite" ng-click="main.unFavorite()" name="Favorite">UNFAVORITE</button>
+  <button ng-click="main.deleteItem()" name="Delete">DELETE</button>
+  <button ng-click="main.addFavorite(main.currentItem)" name="Favorite">FAVORITE</button>
+  <button ng-click="main.unFavorite()" name="Favorite">UNFAVORITE</button>
 </div>
