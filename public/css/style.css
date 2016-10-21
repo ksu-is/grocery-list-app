@@ -145,10 +145,6 @@ div#frame a:hover.note {
     transform: scale(1.1);
 }
 
-.edit-show{
->>>>>>> 6ea3c0d024afa2affc14e9d527208bfcfce4b95f
-  padding: 2em;
-}
 footer{
 	background-color: #222;
   color: white;
