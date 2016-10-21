@@ -92,6 +92,7 @@
     this.editItem = editItem;
     this.addFavorite = addFavorite;
     this.unFavorite = unFavorite;
+
   });
 
   app.controller('AuthCtrl', function($scope, $http, $state, $stateParams){
