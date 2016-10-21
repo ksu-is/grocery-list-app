@@ -1,6 +1,7 @@
-<h2>Favorite Items</h2>
-<ul ng-repeat="item in main.favorites">
-  <a class="active" ui-sref="show({item: item})">
-      &#9829; {{item.name}}
-  </a>
-</ul>
+<div class="home">
+  <h2 id="bungee">Favorite Items</h2>
+
+  <h5 ng-repeat="item in main.favorites">
+    <a class="active" ui-sref="show({item: item})">&#9829; {{item.name}}</a>
+  </h5>
+</div>

@@ -14,7 +14,6 @@
         self.items = response.data.user.groceryList;
         self.favorites = response.data.user.favorites;
         console.log("current user status", self.user);
-        return self.items;
       })
       .catch(function(err){
         console.log(err);

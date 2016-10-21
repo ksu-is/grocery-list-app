@@ -10,11 +10,11 @@
 
 Shopmate keeps track of items for a grocery shopping list. Each added item is displayed in the main user page. If items are favorited, they will be displayed under the favorites page.
 Items displayed on users board, can be clicked to open a show page for more information or be edited if necessary.
-This application features authentication of a user after registering and login. User will only see the navigation bar if is currently in session.
+This application features authentication of a user after registration and login. User will only see the navigation bar if currently in session.
 
 ## Original Wireframe
 
-Wireframe File](https://drive.google.com/open?id=0B9p6hJKmZMZEMlRSRXdWUTFaQ00)
+[Wireframe File] (https://drive.google.com/open?id=0B9p6hJKmZMZEMlRSRXdWUTFaQ00)
 
 ## User Stories
 
@@ -27,7 +27,7 @@ User can:
 * Mark items as purchased
 * Mark items as favorites
 * View all favorite items in one page
-* Click on item to have more information about item
+* Click on item to get more information about item
 * User can logout
 
 ## Unsolved Features (during process)
@@ -39,7 +39,7 @@ User can:
 
 * A view of commonly purchased items
 * An option where user could mark as purchased multiple items
-* An option where user can add items to grocery list from favorited or commonly purchased items.
+* An option where user can add items to grocery list from favorited or commonly purchased items
 * Create a family option where family members can contribute to the list
 * Use API to get detailed data for grocery items
 
@@ -64,3 +64,5 @@ User can:
 ### Copyrights
 Art used:
 Board on user page: https://raw.githubusercontent.com/rheh/CSS-Sticky-Notes/master/cork_board.gif
+Show page: https://www.arcticbuyingco.com/wp-content/uploads/2016/06/groceries.png
+Edit page: http://bensfruitveg.com/wp-content/uploads/2014/10/groceries-crate.png
