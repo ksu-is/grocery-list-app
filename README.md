@@ -10,6 +10,7 @@
 
 Shopmate keeps track of items for a grocery shopping list. Each added item is displayed in the main user page. If items are favorited, they will be displayed under the favorites page.
 Items displayed on users board, can be clicked to open a show page for more information or be edited if necessary.
+This application features authentication of a user after registering and login. User will only see the navigation bar if is currently in session.
 
 ## Original Wireframe
 
@@ -27,15 +28,20 @@ User can:
 * Mark items as favorites
 * View all favorite items in one page
 * Click on item to have more information about item
+* User can logout
 
-## Unsolved Features (Stretched Goals)
+## Unsolved Features (during process)
+
+* Originally our plan was to add a new item on the same page where the list is displayed. It worked at the beginning, but once we started adding more functionality, our items were not being added dynamically. We could only see the added items after we refreshed. Because we could not fix this issue, we opted for sending the ADD NEW ITEM to it's own state.
+* When editing, information was carried to the form, however, if fields were not filled again, when saving they will not show back on users page. We removed the option of carrying previously entered data to place holders, so user is not misled and knows he/she will need to complete all fields again.
+
+## Stretch Goals (wish list)
 
 * A view of commonly purchased items
 * An option where user could mark as purchased multiple items
 * An option where user can add items to grocery list from favorited or commonly purchased items.
 * Create a family option where family members can contribute to the list
 * Use API to get detailed data for grocery items
-
 
 ## Models Used
 
