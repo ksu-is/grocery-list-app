@@ -40,6 +40,12 @@ h2{
   text-align-last: center;
   text-transform:capitalize;
 }
+h2, #bungee{
+  font-family: 'Bungee Inline', cursive;
+}
+h2, #montserrat{
+  font-family: 'Montserrat', sans-serif;
+}
 
 button, .submit-button{
     border-radius: 4px;
@@ -158,11 +164,6 @@ div#frame a:hover.note {
     -webkit-transform: scale(1.1);
     -moz-transform: scale(1.1);
     transform: scale(1.1);
-}
-
-.edit-show{
->>>>>>> 6ea3c0d024afa2affc14e9d527208bfcfce4b95f
-  padding: 2em;
 }
 
 footer{
