@@ -65,4 +65,4 @@ User can:
 Art used:
 Board on user page: https://raw.githubusercontent.com/rheh/CSS-Sticky-Notes/master/cork_board.gif
 Show page: https://www.arcticbuyingco.com/wp-content/uploads/2016/06/groceries.png
-Edit page: http://bensfruitveg.com/wp-content/uploads/2014/10/groceries-crate.png
+Edit page: https://cdncloudcart.com/gate/files/sell-on-facebook-groceries.png
