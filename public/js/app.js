@@ -19,7 +19,7 @@
       .catch(function(err){
         console.log(err);
       });
-      
+
 
     function addItem(newItem){
       //call add favorite function it favorite was selected
@@ -59,6 +59,19 @@
         });
     };
 
+    function unFavorite(){
+      console.log("CURRENT ITEM TO UNFAVORITE >>>>>>>", self.currentItem);
+      console.log("_id: ", self.currentItem._id);
+      $http.delete(`/user/unfavorite-item/${self.currentItem._id}`)
+        .then(function(response){
+          console.log("ITEM HAS BEEN UNFAVORITED FROM USER >>>>>>>>", response.data);
+          $state.go('user', {url: '/user'});
+        })
+        .catch(function(err){
+          console.log(err);
+        });
+    };
+
     function editItem(item){
       console.log("CURRENT ITEM TO EDIT >>>>>>>", self.currentItem);
       console.log("EDITED ITEM RESULTS >>>>>>>", item);
@@ -80,6 +93,7 @@
     this.deleteItem = deleteItem;
     this.editItem = editItem;
     this.addFavorite = addFavorite;
+    this.unFavorite = unFavorite;
   });
 
   app.controller('AuthCtrl', function($scope, $http, $state, $stateParams){

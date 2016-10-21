@@ -97,24 +97,24 @@ router.delete('/delete/:id', function(req, res){
   });
 });
 
-//Removing a favorite item
-// router.delete('/delete/:id', function(req, res){
-//   User.findOne({
-//     username: req.user.username
-//   }, function(err, user){
-//     console.log("CURRENT ITEM ID", req.params.id);
-//     var itemIndex = findItemIndex(req.params.id, user.groceryList);
-//     console.log("ITEM INDEX", itemIndex);
-//     user.groceryList.splice(itemIndex, 1);
-//
-//     user.save(function(err){
-//       if(err) console.log(err);
-//       console.log("Item deleted from User");
-//     });
-//
-//     res.json(user);
-//   });
-// });
+// Removing a favorite item
+router.delete('/unfavorite-item/:id', function(req, res){
+  User.findOne({
+    username: req.user.username
+  }, function(err, user){
+    console.log("CURRENT FAVORITE ITEM ID", req.params.id);
+    var itemIndex = findItemIndex(req.params.id, user.favorites);
+    console.log("ITEM INDEX", itemIndex);
+    user.favorites.splice(itemIndex, 1);
+
+    user.save(function(err){
+      if(err) console.log(err);
+      console.log("Item deleted from Favorites");
+    });
+
+    res.json(user);
+  });
+});
 
 
 
