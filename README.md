@@ -14,7 +14,7 @@ This application features authentication of a user after registering and login. 
 
 ## Original Wireframe
 
-Wireframe File](https://drive.google.com/open?id=0B9p6hJKmZMZEMlRSRXdWUTFaQ00)
+[Wireframe File] (https://drive.google.com/open?id=0B9p6hJKmZMZEMlRSRXdWUTFaQ00)
 
 ## User Stories
 
