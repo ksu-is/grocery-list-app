@@ -32,6 +32,14 @@ nav > button:hover{
 h2{
   text-align-last: center;
 }
+
+h2, #bungee{
+  font-family: 'Bungee Inline', cursive;
+}
+h2, #montserrat{
+  font-family: 'Montserrat', sans-serif;
+}
+
 button, .submit-button{
     border-radius: 4px;
 }
