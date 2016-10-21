@@ -137,7 +137,6 @@ div#frame a:nth-child(3n) .pin {
     background-image: radial-gradient(blue 50%, black 100%);
 }
 
-
 div#frame a:hover.note {
     border: 1px solid rgba(0,0,0,.75);
     -webkit-transform: scale(1.1);

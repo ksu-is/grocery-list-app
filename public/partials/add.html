@@ -1,9 +1,8 @@
-<div class="add-item">
+<div class="home">
+  <h2>Add Item</h2>
   <form ng-submit="main.addItem(newItem)" method="post">
-    <label>Item: </label><br>
-    <input ng-model="newItem.name" type="text" name="name" value="item"><br><br>
-    <label>Description: </label><br>
-    <input ng-model="newItem.description" type="text" name="description" value="description"><br><br>
+    <input ng-model="newItem.name" type="text" name="name" value="item" placeholder="item"><br><br>
+    <input ng-model="newItem.description" type="text" name="description" value="description" placeholder="description"><br><br>
     <label for="favorite"><input ng-model="newItem.favorite" type="checkbox" value="true" name="favorite"> Favorite?</label>
 
     <br><br>

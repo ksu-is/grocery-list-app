@@ -1,9 +1,9 @@
-<div class="edit-show">
+<div class="home">
   <h1>Edit: {{main.currentItem.name}}</h1>
 
   <form ng-submit="main.editItem(itemToEdit)">
-    <input type="text" ng-model="itemToEdit.name"  placeholder="{{main.currentItem.name}}">
-    <input type="text" ng-model="itemToEdit.description" placeholder="Description" ng-value="main.currentItem.description">
+    <input type="text" ng-model="itemToEdit.name"  placeholder="item">
+    <input type="text" ng-model="itemToEdit.description" placeholder="description">
     <label ng-show="!main.currentItem.favorite">
       <input ng-show="!main.currentItem.favorite" type="checkbox" ng-model="itemToEdit.favorite" value="true">
       Favorite
