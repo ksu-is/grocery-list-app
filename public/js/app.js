@@ -27,10 +27,23 @@
       });
 
     function addItem(newItem){
+      //call add favorite function it favorite was selected
       console.log("new item", newItem);
       $http.post('/user/add-item', newItem)
         .then(function(response){
           console.log("ITEM HAS BEEN ADDED TO USER >>>>>>>", response.data.groceryList);
+          $state.go('user', {url: '/user'});
+        })
+        .catch(function(err){
+          console.log(err);
+        });
+    };
+
+    function addFavorite(item){
+      console.log("new favorite", item);
+      $http.post('/user/favorite-item', item)
+        .then(function(response){
+          console.log("ITEM HAS BEEN FAVORITED BY USER >>>>>>>", response.data.groceryList);
           $state.go('user', {url: '/user'});
         })
         .catch(function(err){
@@ -71,6 +84,7 @@
     this.addItem = addItem;
     this.deleteItem = deleteItem;
     this.editItem = editItem;
+    this.addFavorite = addFavorite;
   });
 
   app.controller('AuthCtrl', function($scope, $http, $state, $stateParams){

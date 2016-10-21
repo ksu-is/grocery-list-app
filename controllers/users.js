@@ -36,31 +36,28 @@ router.post('/add-item', function(req, res){
   });
 });
 
-//Adding a new favorite item
-// router.post('/add-item', function(req, res){
-//   console.log("new item", req.body);
-//   User.findOne({
-//     username: req.user.username
-//   })
-//   .then(function(user){
-//     if(!req.body.favorite){
-//       var favorite = false;
-//     }
-//     user.groceryList.push({
-//       name: req.body.name,
-//       description: req.body.description,
-//       // favorite: favorite,
-//       favorite: req.body.favorite,
-//       purchased: false
-//     });
-//     user.save();
-//     res.json(user);
-//     console.log(user);
-//   })
-//   .catch(function(err){
-//     console.log(err);
-//   });
-// });
+// Adding a new favorite item
+router.post('/favorite-item', function(req, res){
+  console.log("new item", req.body);
+  User.findOne({
+    username: req.user.username
+  })
+  .then(function(user){
+    user.favorites.push({
+      name: req.body.name,
+      description: req.body.description,
+      // favorite: favorite,
+      favorite: req.body.favorite,
+      purchased: false
+    });
+    user.save();
+    res.json(user);
+    console.log(user);
+  })
+  .catch(function(err){
+    console.log(err);
+  });
+});
 
 //Edit an existing item
 router.put('/edit-item', function(req, res){

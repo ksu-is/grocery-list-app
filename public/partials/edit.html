@@ -4,14 +4,6 @@
   <form ng-submit="main.editItem(itemToEdit)">
     <input type="text" ng-model="itemToEdit.name"  placeholder="item">
     <input type="text" ng-model="itemToEdit.description" placeholder="description">
-    <label ng-show="!main.currentItem.favorite">
-      <input ng-show="!main.currentItem.favorite" type="checkbox" ng-model="itemToEdit.favorite" value="true">
-      Favorite
-    </label>
-    <label ng-show="main.currentItem.favorite">
-      <input ng-show="main.currentItem.favorite" type="checkbox" ng-model="itemToEdit.favorite" value="false">
-      Unfavorite
-    </label>
     <button type="submit">EDIT</button>
   </form>
 </div>
