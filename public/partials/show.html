@@ -1,4 +1,4 @@
-<div class="home">
+<div class="home" ng-init="main.getImage(main.currentItem.name)">
   <h2 id="font1">{{main.currentItem.name}}</h2>
   <div>
     <label ng-show="main.currentItem.description">Description: {{main.currentItem.description}}</label><br>

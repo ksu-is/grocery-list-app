@@ -6,6 +6,7 @@
 
     self.currentItem = $stateParams.item;
     self.favorites = [];
+    self.imageURL = "NO URL"
 
     $http.get('/helper/get-user')
       .then(function(response){
@@ -30,12 +31,14 @@
 
       $http.jsonp(flickrUrl+clientKey+tags+sort+perPage+format+callback)
         .then(function(response){
-          console.log(response.photos);
-          // var imgSRC = "https://www.flickr.com/photos/"; // + /owner/id
-          // var owner = response.data.photos.photo[1].owner + '/';
-          // var id = response.data.photos.photo[1].id;
-          // self.imageURL = imgSRC + owner + id;
-          // console.log("IMAGE URL >>>>>", self.imageURL);
+          console.log(response.data);
+          var farmId = response.data.photos.photo[1].farm;
+          var serverId = response.data.photos.photo[1].server;
+          var id = response.data.photos.photo[1].id;
+          var secret = response.data.photos.photo[1].secret;
+          var imgSRC = `http://farm${farmId}.staticflickr.com/${serverId}/${id}_${secret}.jpg`;
+          self.imageURL = imgSRC;
+          console.log("IMAGE URL >>>>>", self.imageURL);
         })
         .catch(function(err){
           console.log(err);
