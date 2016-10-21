@@ -2,9 +2,9 @@
   angular.module('shopping-list')
   .config(MainRouter);
 
-  MainRouter.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
+  MainRouter.$inject = ['$stateProvider', '$urlRouterProvider'];
 
-  function MainRouter($stateProvider, $urlRouterProvider, $locationProvider){
+  function MainRouter($stateProvider, $urlRouterProvider){
 
   $urlRouterProvider.otherwise("/");
 
@@ -55,11 +55,11 @@
   });
 
   $urlRouterProvider.otherwise('/')
-  $locationProvider.html5Mode({
-   enabled: true,
-   requireBase: false,
-   rewriteLinks: true
-  });
+  // $locationProvider.html5Mode({
+  //  enabled: true,
+  //  requireBase: false,
+  //  rewriteLinks: true
+  // });
 
   }; //end of routes
 })();
