@@ -41,12 +41,12 @@ h2{
   text-transform:capitalize;
 }
 
-/*h2, #font1{
+h2, #font1{
   font-family: 'Bungee Inline', cursive;
 }
 h2, #font2{
   font-family: 'Montserrat', sans-serif;
-}*/
+}
 
 button, .submit-button{
     border-radius: 4px;
